@@ -1,3 +1,4 @@
-com/irfan/ecommerce/pages/HomePage.class
+com/irfan/ecommerce/base/HomePage.class
 com/irfan/ecommerce/base/DriverFactory.class
+com/irfan/ecommerce/util/CommonFunctionsUtil.class
 com/irfan/ecommerce/base/BaseTest.class

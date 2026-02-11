@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-02-11T22:35:31 GST" name="Demoblaze Suite" finished-at="2026-02-11T22:35:33 GST" duration-ms="2748">
+  <suite started-at="2026-02-12T00:01:04 GST" name="Surefire suite" finished-at="2026-02-12T00:01:09 GST" duration-ms="5057">
     <groups>
     </groups>
-    <test started-at="2026-02-11T22:35:31 GST" name="HomePage Tests" finished-at="2026-02-11T22:35:33 GST" duration-ms="2748">
+    <test started-at="2026-02-12T00:01:04 GST" name="Surefire test" finished-at="2026-02-12T00:01:09 GST" duration-ms="5057">
       <class name="com.irfan.ecommerce.tests.HomePageTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.irfan.ecommerce.tests.HomePageTest@70be0a2b]" started-at="2026-02-11T22:35:31 GST" name="setup" finished-at="2026-02-11T22:35:32 GST" duration-ms="1338" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.irfan.ecommerce.tests.HomePageTest@176d53b2]" started-at="2026-02-12T00:01:04 GST" name="setup" finished-at="2026-02-12T00:01:09 GST" duration-ms="4877" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testPhonesCategory()[pri:0, instance:com.irfan.ecommerce.tests.HomePageTest@70be0a2b]" started-at="2026-02-11T22:35:32 GST" name="testPhonesCategory" finished-at="2026-02-11T22:35:33 GST" duration-ms="1306" status="PASS">
+        <test-method signature="testHomePageTitle()[pri:0, instance:com.irfan.ecommerce.tests.HomePageTest@176d53b2]" started-at="2026-02-12T00:01:09 GST" name="testHomePageTitle" finished-at="2026-02-12T00:01:09 GST" duration-ms="76" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testPhonesCategory -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.irfan.ecommerce.tests.HomePageTest@70be0a2b]" started-at="2026-02-11T22:35:33 GST" name="tearDown" finished-at="2026-02-11T22:35:33 GST" duration-ms="92" status="PASS">
+        </test-method> <!-- testHomePageTitle -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.irfan.ecommerce.tests.HomePageTest@176d53b2]" started-at="2026-02-12T00:01:09 GST" name="teardown" finished-at="2026-02-12T00:01:09 GST" duration-ms="91" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
+        </test-method> <!-- teardown -->
       </class> <!-- com.irfan.ecommerce.tests.HomePageTest -->
-    </test> <!-- HomePage Tests -->
-  </suite> <!-- Demoblaze Suite -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
 </testng-results>
