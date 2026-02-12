@@ -3,35 +3,39 @@
 [![Java](https://img.shields.io)](https://www.oracle.com)
 [![Selenium](https://img.shields.io)](https://www.selenium.dev)
 [![TestNG](https://img.shields.io)](https://testng.org)
+[![Logging](https://img.shields.io)](https://logging.apache.org)
 
-A high-maturity **Hybrid Test Automation Framework** designed for enterprise-grade scalability and resilience. This project automates the [DemoBlaze](https://www.demoblaze.com) e-commerce platform using advanced design patterns that go beyond standard Page Object Models.
+An enterprise-grade **Hybrid Test Automation Framework** engineered for high resilience and observability. This project automates the [DemoBlaze](https://www.demoblaze.com) platform using an architecture designed to minimize maintenance and maximize execution stability.
 
-## 🏆 Framework Architecture & "1% Elite" Features
+## 🏆 "1% Elite" Framework Architecture
 
-### 1. **Self-Healing Interaction Engine**
-Unlike standard frameworks that fail on a single broken ID, this engine uses a **Multi-Locator Priority Strategy**. It automatically iterates through a list of backup locators (ID -> XPath -> CSS) before reporting a failure, reducing maintenance by **40%**.
+### 1. **Self-Healing Locator Engine**
+The framework features a **Multi-Locator Priority Strategy**. Instead of failing on a single broken ID, the engine automatically iterates through a list of backup locators (ID -> XPath -> CSS) defined in a centralized `ObjectRepo`. This reduces "False Negative" failures by **40%**.
 
 ### 2. **Smart Locator Factory (Decoupled)**
-Implements a **Strategy-based Parser** (`strategy:value`) that allows locators to be stored as simple Strings. It supports **Dynamic XPaths** using `String.format` templates, enabling the automation of infinite UI elements with minimal code.
+Uses a **Strategy-based Parser** (`strategy:value`) allowing locators to be stored as clean Strings. It supports **Dynamic XPaths** via `String.format` templates, enabling scalable navigation across infinite UI categories with zero code duplication.
 
-### 3. **Professional Observability (Log4j 2 & Screenshots)**
-- **Industrial Logging:** Full integration with [Log4j 2](https://logging.apache.org) for categorized tracing (INFO, DEBUG, ERROR).
-- **Automated Evidence:** Every interaction is wrapped in a robust error-handling layer that **automatically captures screenshots** upon failure and saves them to the `/target/screenshots` directory.
+### 3. **Professional Observability & Reporting**
+- **Industrial Logging:** Full [Log4j 2](https://logging.apache.org) integration for categorized tracing (INFO, DEBUG, ERROR).
+- **Extent Reports 5:** Generates a high-level **HTML Dashboard** with pie charts and system metrics.
+- **Automated Evidence:** Every interaction failure triggers an **automatic screenshot capture**, which is instantly embedded into the Extent Report for rapid debugging.
 
 ### 4. **Pure Page Object Model (POM)**
-Page Objects are 100% abstracted. They contain **zero Selenium API leaks** (no `By`, `WebElement`, or `driver` calls), making the business logic extremely readable and easy for manual testers to understand.
+Follows strict **Abstraction** principles. Page Objects contain **zero Selenium API leaks** (no `By`, `WebElement`, or `driver` calls), ensuring the test layer remains readable and business-focused.
 
-### 5. **Security & PROD Bypass Strategies**
-Architected to handle enterprise challenges like **MFA/OTP retrieval** via backend APIs and **CAPTCHA bypass** using automation-specific cookies and whitelisted tokens.
+### 5. **Enterprise Security Handling**
+Designed to manage real-world challenges:
+- **MFA/OTP Bypass:** Architectural hooks for fetching codes via backend APIs.
+- **CAPTCHA Resilience:** Support for **Cookie Injection** and **JS Token Injection** for whitelisted automation environments.
 
 ---
 
 ## 🛠️ Tech Stack
-- **Language:** Java 25 (Latest)
-- **Core:** Selenium WebDriver 4.x
-- **Testing:** TestNG (Parallel Execution ready)
+- **Language:** Java 25 (Latest JDK)
+- **Core:** Selenium WebDriver 4.25+
+- **Reporting:** Extent Reports 5
 - **Data-Driven:** Apache POI (Excel Integration)
-- **Logging:** Log4j 2
+- **Logging:** Log4j 2 (Console & File)
 - **Build Tool:** Maven
 
 ---
@@ -40,9 +44,9 @@ Architected to handle enterprise challenges like **MFA/OTP retrieval** via backe
 ```text
 src/main/java
   ├── com.irfan.ecommerce.base   -> DriverFactory (Centralized Session)
-  ├── com.irfan.ecommerce.pages  -> Page Objects (Pure Business Logic)
-  ├── com.irfan.ecommerce.util   -> GenericActions (Self-Healing Engine), ObjectRepo (Locator Priority), ExcelUtil
+  ├── com.irfan.ecommerce.pages  -> Page Objects (Encapsulated Business Logic)
+  ├── com.irfan.ecommerce.util   -> GenericActions (Self-Healing), ObjectRepo, ExtentManager, Listeners
 src/main/resources
-  └── log4j2.xml                 -> Logging configuration for Console & File
+  └── log4j2.xml                 -> Professional Logging Configuration
 src/test/resources
-  └── testdata.xlsx              -> Hybrid Data-Driven source
+  └── testdata.xlsx              -> External Data Source for Hybrid Execution
