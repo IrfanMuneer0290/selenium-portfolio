@@ -32,7 +32,25 @@
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
         </dependency>
-        
+            <dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>5.2.5</version>
+</dependency>
+
+<!-- 2. POI OOXML for .xlsx files -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>5.2.5</version>
+</dependency>
+
+<!-- 3. Log4j (Required for POI 5+) -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-api</artifactId>
+    <version>2.20.0</version>
+</dependency>
         <!-- WebDriverManager (auto Chrome driver) -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
