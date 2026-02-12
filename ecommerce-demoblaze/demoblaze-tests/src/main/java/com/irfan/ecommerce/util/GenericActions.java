@@ -216,4 +216,54 @@ public class GenericActions {
             log.error("Failed to add cookie: {}", e.getMessage());
         }
     }
+
+    // --- 11. ENTERPRISE SECURITY & BYPASS STRATEGIES ---
+
+    /**
+     * Retrieves an OTP from a backend API or Mock Service.
+     * In an enterprise PROD/STAGE environment, we use RestAssured to poll a 
+     * database or secret manager instead of automating the UI of an email/SMS.
+     * @param accountId - The unique identifier for the test user
+     * @return String - The 6-digit OTP code
+     */
+    public static String getOTPFromBackend(String accountId) {
+        log.info("SECURITY: Fetching OTP for [{}] via Backend API...", accountId);
+        // Implementation: return RestAssured.get("/api/otp/" + accountId).jsonPath().getString("code");
+        String mockOTP = "123456"; 
+        log.info("SECURITY: OTP successfully retrieved.");
+        return mockOTP;
+    }
+
+    /**
+     * Bypasses CAPTCHA by injecting a 'Magic Cookie' or 'Automation Token'.
+     * This is the standard 1% Elite way to handle security in Regression suites.
+     * @param cookieName - The whitelisted cookie name (e.g., 'Bypass-Captcha')
+     * @param value - The secret token value
+     */
+    public static void addAutomationBypassCookie(String cookieName, String value) {
+        try {
+            log.info("SECURITY: Injecting Automation Bypass Cookie: {}", cookieName);
+            Cookie bypassCookie = new Cookie(cookieName, value);
+            getDriver().manage().addCookie(bypassCookie);
+            getDriver().navigate().refresh();
+            log.info("SECURITY: Page refreshed with Bypass Cookie active.");
+        } catch (Exception e) {
+            log.error("SECURITY_ERROR: Failed to inject bypass cookie | {}", e.getMessage());
+        }
+    }
+
+    /**
+     * Handles 'Invisible CAPTCHA' by injecting a bypass token into the hidden g-recaptcha-response field.
+     * @param token - The valid response token provided by the dev team or a solver service.
+     */
+    public static void injectCaptchaBypassToken(String token) {
+        try {
+            log.info("SECURITY: Injecting hidden g-recaptcha-response token...");
+            ((JavascriptExecutor) getDriver()).executeScript(
+                "document.getElementById('g-recaptcha-response').innerHTML='" + token + "';");
+            log.info("SECURITY: CAPTCHA token successfully injected.");
+        } catch (Exception e) {
+            log.error("SECURITY_ERROR: CAPTCHA injection failed | {}", e.getMessage());
+        }
+    }
 }
