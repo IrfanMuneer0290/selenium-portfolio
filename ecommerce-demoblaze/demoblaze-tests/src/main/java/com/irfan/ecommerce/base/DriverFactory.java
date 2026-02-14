@@ -3,49 +3,54 @@ package com.irfan.ecommerce.base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
+import org.openqa.selenium.remote.RemoteWebDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import java.net.URL; // 👈 CRITICAL: Add this import
 
 public class DriverFactory {
-    // 1. ThreadLocal container to ensure thread-safety
     private static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
-     String headless = System.getProperty("headless");
-     
 
     public static WebDriver initDriver(String browser) {
-        if (browser == null || browser.isEmpty()) {
-        browser = "chrome";
-    }
-    // FIX: Declare 'headless' as a local String variable inside the static method
-    String headless = System.getProperty("headless"); 
-
-    
-    if (browser.equalsIgnoreCase("chrome")) {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
+        String executionEnv = System.getProperty("execution_env", "local");
+        String headless = System.getProperty("headless", "false");
         
-        // Logical check: If Maven sends -Dheadless=true, we add the arguments
-        if (headless != null && headless.equalsIgnoreCase("true")) {
-            options.addArguments("--headless=new"); // For Chrome 109+
-            options.addArguments("--window-size=1920,1080");
-            options.addArguments("--no-sandbox"); 
-            options.addArguments("--disable-dev-shm-usage"); 
-            options.addArguments("--disable-gpu");
+        if (browser == null || browser.isEmpty()) {
+            browser = "chrome";
         }
 
-        // Wrap maximize in a try-catch or skip for headless
-    if (headless == null || !headless.equalsIgnoreCase("true")) {
-        getDriver().manage().window().maximize();
-    }
-        
-        tlDriver.set(new ChromeDriver(options));
-    }
-    
-    getDriver().manage().window().maximize();
-    return getDriver();
-}
+        if (browser.equalsIgnoreCase("chrome")) {
+            ChromeOptions options = new ChromeOptions();
 
-    // 2. Public getter to retrieve the driver for the SPECIFIC thread
+            if ("true".equalsIgnoreCase(headless)) {
+                options.addArguments("--headless=new");
+                options.addArguments("--window-size=1920,1080");
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--disable-gpu");
+            }
+
+            try {
+                if (executionEnv.equalsIgnoreCase("remote")) {
+                    // 🐋 Remote Docker Execution
+                    tlDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options));
+                } else {
+                    // 💻 Local Execution
+                    WebDriverManager.chromedriver().setup();
+                    tlDriver.set(new ChromeDriver(options));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        // Only maximize if NOT in headless mode to avoid CI crashes
+        if (!"true".equalsIgnoreCase(headless) && getDriver() != null) {
+            getDriver().manage().window().maximize();
+        }
+        
+        return getDriver();
+    }
+
     public static synchronized WebDriver getDriver() {
         return tlDriver.get();
     }
@@ -53,7 +58,7 @@ public class DriverFactory {
     public static void quitDriver() {
         if (getDriver() != null) {
             getDriver().quit();
-            tlDriver.remove(); // 3. Crucial: Clear the memory after quit
+            tlDriver.remove();
         }
     }
 }

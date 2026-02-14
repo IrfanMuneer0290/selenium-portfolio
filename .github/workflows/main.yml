@@ -21,13 +21,18 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: 🌐 Setup Chrome
-      uses: browser-actions/setup-chrome@latest
+    - name: 🐋 Start Selenium Grid (Docker)
+      # This starts the Hub and Chrome Node defined in your docker-compose.yml
+      run: docker-compose up -d
 
     - name: 🏗️ Build and Run Tests
       working-directory: ecommerce-demoblaze/demoblaze-tests
-      # We use -Dheadless=true to run in the cloud without a UI
-      run: mvn clean test -Dheadless=true
+      # Added -Dexecution_env=remote so your DriverFactory knows to talk to Docker
+      run: mvn clean test -Dheadless=true -Dexecution_env=remote
+
+    - name: 🛑 Stop Selenium Grid
+      if: always()
+      run: docker-compose down
 
     - name: 📊 Upload Extent Report
       if: always()
