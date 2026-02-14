@@ -7,11 +7,11 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: 📥 Checkout Repository
+    - name: 📥 Checkout Code
       uses: actions/checkout@v4
 
     - name: ☕ Set up JDK 25
@@ -21,16 +21,18 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: 🌐 Setup Chrome for Headless Testing
+    - name: 🌐 Setup Chrome
       uses: browser-actions/setup-chrome@latest
 
-    - name: 🏗️ Build and Execute Selenium Tests
-      # -Dheadless=true is critical for running on Linux servers without a UI
+    - name: 🏗️ Build and Run Tests
+      # We use -Dheadless=true to run in the cloud without a UI
+      working-directory: ecommerce-demoblaze/demoblaze-tests
       run: mvn clean test -Dheadless=true
 
-    - name: 📊 Archive Extent Reports
-      if: always() # Ensures reports are uploaded even if tests fail
+    - name: 📊 Upload Extent Report
+      if: always()
       uses: actions/upload-artifact@v4
       with:
         name: Extent-Automation-Report
-        path: reports/ # Matches your ExtentManager output directory
+        path: ecommerce-demoblaze/demoblaze-tests/reports/
+        if-no-files-found: warn 

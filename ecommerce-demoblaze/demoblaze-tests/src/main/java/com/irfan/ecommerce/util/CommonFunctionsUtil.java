@@ -18,11 +18,4 @@ public class CommonFunctionsUtil {
         }
     }
     
-    public static String getLocator(String key) {
-    String locator = prop.getProperty(key);
-    if (locator == null || locator.trim().isEmpty()) {
-        throw new RuntimeException("Locator NOT FOUND: " + key);
-    }
-    return locator.trim();
-    }
 }
