@@ -13,15 +13,18 @@
 
        <!-- New Splunk HEC Appender -->
 <SplunkHttp name="Splunk"
-            url="${env:SPLUNK_URL:-https://localhost:8088}"
-            token="${env:SPLUNK_TOKEN:-18f84e7e-ef24-4924-9f72-c49c35a9595c}"
+            url="https://localhost:8088/services/collector"
+            token="${sys:splunk.token}"
             index="selenium_logs"
-            source="selenium-automation"
+            source="demoblaze-automation"
             sourcetype="_json"
             disableCertificateValidation="true"
-            ignoreExceptions="true"> <!-- This prevents build failure if Splunk is unreachable -->
-     <PatternLayout pattern="%-5p [%C.%M] %m"/>
+            batch_size_count="1"
+            ignoreExceptions="false"> 
+    <PatternLayout pattern="%-5p [%C.%M] %m" />
 </SplunkHttp>
+
+
     </Appenders>
 
     <Loggers>

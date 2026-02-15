@@ -1,0 +1,8 @@
+2026-02-15 22:00:44 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.76 (resolved driver for Chrome 145)
+2026-02-15 22:00:44 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.76/chromedriver
+2026-02-15 22:00:47 [main] INFO  com.irfan.ecommerce.tests.HomePageTest - SPLUNK TEST: Home Page Test is running!
+2026-02-15 22:00:47 [main] INFO  com.irfan.ecommerce.base.HomePage - SPLUNK TEST: Home Page getTitleText!
+2026-02-15 22:05:54 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.76 (resolved driver for Chrome 145)
+2026-02-15 22:05:54 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.76/chromedriver
+2026-02-15 22:05:58 [main] INFO  com.irfan.ecommerce.tests.HomePageTest - SPLUNK TEST: Home Page Test is running!
+2026-02-15 22:05:58 [main] INFO  com.irfan.ecommerce.base.HomePage - SPLUNK TEST: Home Page getTitleText!
