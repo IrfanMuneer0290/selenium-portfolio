@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <!-- Your existing Console logger -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        
+        <!-- Your existing File logger -->
+        <File name="File" fileName="logs/automation.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+       <!-- New Splunk HEC Appender -->
+<SplunkHttp name="Splunk"
+            url="${env:SPLUNK_URL:-https://localhost:8088}"
+            token="${env:SPLUNK_TOKEN:-18f84e7e-ef24-4924-9f72-c49c35a9595c}"
+            index="selenium_logs"
+            source="selenium-automation"
+            sourcetype="_json"
+            disableCertificateValidation="true"
+            ignoreExceptions="true"> <!-- This prevents build failure if Splunk is unreachable -->
+     <PatternLayout pattern="%-5p [%C.%M] %m"/>
+</SplunkHttp>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+            <AppenderRef ref="Splunk"/> <!-- Added Splunk here -->
+        </Root>
+    </Loggers>
+</Configuration>
