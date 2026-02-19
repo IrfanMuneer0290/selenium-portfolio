@@ -57,7 +57,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Failure-Report-${{ github.run_id }}
-        path: ecommerce-demoblaze/demoblaze-tests/reports/ 
+        path: "**/reports/"
         retention-days: 3
 
     - name: 🧹 Shutdown Infrastructure
