@@ -6,3 +6,85 @@
 2026-02-15 22:05:54 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.76/chromedriver
 2026-02-15 22:05:58 [main] INFO  com.irfan.ecommerce.tests.HomePageTest - SPLUNK TEST: Home Page Test is running!
 2026-02-15 22:05:58 [main] INFO  com.irfan.ecommerce.base.HomePage - SPLUNK TEST: Home Page getTitleText!
+2026-02-19 16:16:35 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 16:16:35 [main] INFO  io.github.bonigarcia.wdm.online.Downloader - Downloading https://storage.googleapis.com/chrome-for-testing-public/145.0.7632.77/mac-arm64/chromedriver-mac-arm64.zip
+2026-02-19 16:16:36 [main] INFO  io.github.bonigarcia.wdm.online.Downloader - Extracting driver from compressed file chromedriver-mac-arm64.zip
+2026-02-19 16:16:36 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 16:16:38 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 16:16:38 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 16:16:40 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 16:16:40 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 16:20:41 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 16:20:41 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 16:20:42 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 16:20:42 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 16:20:44 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 16:20:44 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 16:25:00 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 16:25:00 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 16:25:01 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 16:25:01 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 16:25:03 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 16:25:03 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 16:31:30 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 16:31:30 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 16:31:32 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 16:31:32 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 16:31:33 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 16:31:33 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 16:34:28 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 16:34:28 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 16:34:29 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 16:34:29 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 16:34:30 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 16:34:30 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 21:59:06 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 21:59:07 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 21:59:08 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 21:59:08 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 21:59:09 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 21:59:09 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 22:02:25 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 22:02:25 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 22:02:28 [main] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - SPLUNK_MONITOR: Starting Cart Persistence Check for: Nokia lumia 1520
+2026-02-19 22:02:29 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 22:02:29 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 22:02:30 [main] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - SPLUNK_MONITOR: Starting PDP Integrity Check for 'Samsung galaxy s6'.
+2026-02-19 22:02:31 [main] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - ACTION: Clicking on 'Samsung galaxy s6' link.
+2026-02-19 22:02:31 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 22:02:31 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 22:02:33 [main] INFO  com.irfan.ecommerce.ui.tests.HomePageTest - SPLUNK_MONITOR: Starting Tier-1 Availability Check for HomePage.
+2026-02-19 22:02:33 [main] INFO  com.irfan.ecommerce.ui.pages.HomePage - SPLUNK_MONITOR: Home Page getTitleText initiated.
+2026-02-19 22:02:33 [main] INFO  com.irfan.ecommerce.ui.tests.HomePageTest - VALIDATION: Checking if brand 'STORE' is present in UI.
+2026-02-19 22:02:33 [main] INFO  com.irfan.ecommerce.ui.tests.HomePageTest - SPLUNK_MONITOR: HomePage Availability Check - PASSED.
+2026-02-19 22:05:17 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 22:05:17 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 22:05:20 [main] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - SPLUNK_MONITOR: Starting Cart Persistence Check for: Nokia lumia 1520
+2026-02-19 22:05:20 [main] INFO  com.irfan.ecommerce.util.GenericActions - NAV: Successfully navigated to URL: https://www.demoblaze.com
+2026-02-19 22:05:20 [main] INFO  com.irfan.ecommerce.util.GenericActions - DATA: Retrieved UI Text: PRODUCT STORE
+2026-02-19 22:05:22 [main] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-19 22:05:22 [main] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - ACTION: Adding product to cart.
+2026-02-19 22:05:22 [main] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-19 22:05:23 [main] INFO  com.irfan.ecommerce.util.GenericActions - ALERT: Accepted. Text was: Product added
+2026-02-19 22:05:23 [main] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - ACTION: Navigating to Cart Page.
+2026-02-19 22:05:24 [main] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-19 22:05:24 [main] INFO  com.irfan.ecommerce.ui.pages.CartPage - CART: Verifying if [Nokia lumia 1520] exists in the checkout table.
+2026-02-19 22:05:25 [main] INFO  com.irfan.ecommerce.util.GenericActions - DATA: Retrieved UI Text: Nokia lumia 1520
+2026-02-19 22:05:25 [main] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - SPLUNK_MONITOR: Cart Persistence Check - PASSED.
+2026-02-19 22:05:25 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 22:05:25 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 22:05:27 [main] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - SPLUNK_MONITOR: Starting PDP Integrity Check for 'Samsung galaxy s6'.
+2026-02-19 22:05:27 [main] INFO  com.irfan.ecommerce.util.GenericActions - NAV: Successfully navigated to URL: https://www.demoblaze.com
+2026-02-19 22:05:27 [main] INFO  com.irfan.ecommerce.util.GenericActions - DATA: Retrieved UI Text: PRODUCT STORE
+2026-02-19 22:05:27 [main] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - ACTION: Clicking on 'Samsung galaxy s6' link.
+2026-02-19 22:05:29 [main] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-19 22:05:30 [main] INFO  com.irfan.ecommerce.util.GenericActions - DATA: Retrieved UI Text: $360 *includes tax
+2026-02-19 22:05:30 [main] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - VALIDATION: Actual Price found in UI: $360 *includes tax
+2026-02-19 22:05:30 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 145.0.7632.77 (resolved driver for Chrome 145)
+2026-02-19 22:05:30 [main] INFO  io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as /Users/irfanmuneer/.cache/selenium/chromedriver/mac-arm64/145.0.7632.77/chromedriver
+2026-02-19 22:05:32 [main] INFO  com.irfan.ecommerce.ui.tests.HomePageTest - SPLUNK_MONITOR: Starting Tier-1 Availability Check for HomePage.
+2026-02-19 22:05:33 [main] INFO  com.irfan.ecommerce.util.GenericActions - NAV: Successfully navigated to URL: https://www.demoblaze.com
+2026-02-19 22:05:33 [main] INFO  com.irfan.ecommerce.util.GenericActions - DATA: Retrieved UI Text: PRODUCT STORE
+2026-02-19 22:05:33 [main] INFO  com.irfan.ecommerce.ui.pages.HomePage - SPLUNK_MONITOR: Home Page getTitleText initiated.
+2026-02-19 22:05:33 [main] INFO  com.irfan.ecommerce.ui.tests.HomePageTest - VALIDATION: Checking if brand 'STORE' is present in UI.
+2026-02-19 22:05:33 [main] INFO  com.irfan.ecommerce.ui.tests.HomePageTest - SPLUNK_MONITOR: HomePage Availability Check - PASSED.

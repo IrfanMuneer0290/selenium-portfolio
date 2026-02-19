@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.irfan.ecommerce.ui.base.BaseTest;
-import com.irfan.ecommerce.ui.base.HomePage;
+import com.irfan.ecommerce.ui.pages.HomePage;
 
 /**
  * HomePageTest: The "Smoke Test" for Business Availability.

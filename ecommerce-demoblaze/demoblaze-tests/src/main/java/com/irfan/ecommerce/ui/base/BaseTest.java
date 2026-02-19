@@ -33,8 +33,9 @@ public class BaseTest {
         driver = DriverFactory.initDriver("chrome");
 
          // Architect Move: Start the sniffer before navigating
-    if (ConfigReader.getProperty("browser").equalsIgnoreCase("chrome")) {
-        GenericActions.startNetworkSniffer();
+    String browser = ConfigReader.getProperty("browser");
+    if ("chrome".equalsIgnoreCase(browser)) {
+       // GenericActions.startNetworkSniffer();
     }
     
       // Pulls the URL from qa.properties or prod.properties based on your Maven command

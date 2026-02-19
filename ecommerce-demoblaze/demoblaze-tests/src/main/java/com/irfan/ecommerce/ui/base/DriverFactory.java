@@ -37,6 +37,8 @@ public class DriverFactory {
 
         if (browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
+            options.setCapability("se:cdp", false); 
+            options.addArguments("--remote-allow-origins=*");
 
             if ("true".equalsIgnoreCase(headless)) {
                 options.addArguments("--headless=new");
@@ -44,6 +46,7 @@ public class DriverFactory {
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");
                 options.addArguments("--disable-gpu");
+                
             }
 
             try {

@@ -45,14 +45,20 @@ public class ObjectRepo {
 
     // --- CATEGORIES (Dynamic Templates) ---
     // %s will be replaced by "Phones", "Laptops", or "Monitors" at runtime
-    public static final String[] CATEGORY_DYNAMIC = {"xpath://a[@id='itemc' and text()='%s']", "text:%s"};
+    public static final String[] CATEGORY_DYNAMIC = {"xpath://a[text()='%s']"};
 
     // --- PRODUCT PAGE ---
     public static final String[] ADD_TO_CART_BTN = {"xpath://a[text()='Add to cart']", "css:a.btn-success"};
     public static final String[] PRODUCT_TITLE = {"xpath://h2[@class='name']", "css:h2.name"};
+    public static final String[] PRODUCT_PRICE = {"class:price-container", "xpath://h3[@class='price-container']"};
+    public static final String[] PRODUCT_DESC  = {"id:more-information", "xpath://div[@id='more-information']"};
+
 
     // --- CART PAGE ---
     public static final String[] PLACE_ORDER_BTN = {"xpath://button[text()='Place Order']", "css:button.btn-success"};
+    public static final String[] CART_ITEMS_TABLE = {"xpath://table[@class='table table-bordered table-hover table-striped']"};
+    public static final String[] CART_TOTAL_PRICE = {"id:totalp", "xpath://h3[@id='totalp']"};
+    public static final String[] CART_PRODUCT_NAME = {"xpath://td[text()='%s']"};
     /**
      * Finds the delete link specifically for the product name provided.
      */

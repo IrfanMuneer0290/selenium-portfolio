@@ -6,7 +6,9 @@ on:
     # PROBLEM: We wasted thousands of dollars in cloud costs running 4-hour suites for README fixes.
     # SOLUTION: At Walmart, I introduced 'Path Filtering' to trigger tests only for functional code.
     # RESULT: Improved CI/CD efficiency by 40% and zeroed out wasteful resource usage.
-    paths: [ 'src/**', 'pom.xml', 'docker-compose.yml' ]
+    - 'ecommerce-demoblaze/demoblaze-tests/src/**'
+    - 'ecommerce-demoblaze/demoblaze-tests/pom.xml'
+    - 'docker-compose.yml'
 
 jobs:
   build-and-test:
@@ -43,6 +45,7 @@ jobs:
       run: |
         echo "::add-mask::$SPLUNK_TOKEN"
         mvn clean test -Dheadless=true -Dexecution_env=remote -Dsplunk.token=$SPLUNK_TOKEN
+      working-directory: ecommerce-demoblaze/demoblaze-tests
 
     - name: 📊 Upload Extent Report
       # PROBLEM: Storing massive videos for passing tests drained our storage quota in days.
