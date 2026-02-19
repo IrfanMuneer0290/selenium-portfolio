@@ -33,23 +33,20 @@ public class ExtentManager {
     }
 
     private static ExtentReports createInstance() {
-        // 1. Priority: Check if the CI passed a report directory. Fallback to local
-        // 'reports'
         String reportDir = System.getProperty("report.dir", "reports");
         File directory = new File(reportDir);
 
         if (!directory.exists()) {
-            directory.mkdirs();
+            boolean created = directory.mkdirs();
+            System.out.println("DEBUG: Created report directory at " + directory.getAbsolutePath() + " : " + created);
         }
 
-        // Use absolute path to avoid confusion on Linux runners
-        String absolutePath = directory.getAbsolutePath();
-        String latestFile = absolutePath + "/index.html";
-        String timestampedFile = absolutePath + "/ExecutionReport_" + System.currentTimeMillis() + ".html";
+        // Build paths using the directory object to ensure separators are correct for Linux
+        File latestFile = new File(directory, "index.html");
+        File timestampedFile = new File(directory, "ExecutionReport_" + System.currentTimeMillis() + ".html");
 
         ExtentSparkReporter latestReporter = new ExtentSparkReporter(latestFile);
         ExtentSparkReporter timestampedReporter = new ExtentSparkReporter(timestampedFile);
-
         extent = new ExtentReports();
         extent.attachReporter(latestReporter, timestampedReporter);
         return extent;
