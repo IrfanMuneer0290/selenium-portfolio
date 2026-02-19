@@ -1,4 +1,4 @@
-package com.irfan.ecommerce.pages;
+package com.irfan.ecommerce.ui.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
