@@ -157,4 +157,4 @@
             <url>https://splunk.jfrog.io/splunk/ext-releases-local</url>
         </repository>
     </repositories>
-</project>
+</project><!-- CI: Finalizing artifact path for GitHub Actions -->
