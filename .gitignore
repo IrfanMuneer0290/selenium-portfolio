@@ -1,1 +1,6 @@
 .vscode/
+bin/
+target/
+*.class
+README.md
+**/README.md
