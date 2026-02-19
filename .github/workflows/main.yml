@@ -48,8 +48,7 @@ jobs:
       # RESULT: Maintained 100% security compliance for our transaction logging.
       run: |
         echo "::add-mask::$SPLUNK_TOKEN"
-        mvn clean test -Dheadless=true -Dexecution_env=remote -Dsplunk.token=$SPLUNK_TOKEN
-      
+        mvn clean test -Dheadless=true -Dexecution_env=remote -Dsplunk.token=$SPLUNK_TOKEN -Dreport.dir=target/reports
 
     - name: 📊 Upload Extent Report
       # PROBLEM: Storing massive videos for passing tests drained our storage quota in days.
@@ -59,7 +58,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Failure-Report-${{ github.run_id }}
-        path: test-results/
+        path: ecommerce-demoblaze/demoblaze-tests/target/reports/
         retention-days: 3
 
     - name: 🧹 Shutdown Infrastructure
