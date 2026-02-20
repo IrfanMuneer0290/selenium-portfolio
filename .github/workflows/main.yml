@@ -5,7 +5,6 @@ on:
     branches: [ "main" ]
     # PROBLEM: We wasted thousands of dollars in cloud costs running 4-hour suites for README fixes.
     # SOLUTION: At Walmart, I introduced 'Path Filtering' to trigger tests only for functional code.
-    # RESULT: Improved CI/CD efficiency by 40% and zeroed out wasteful resource usage.
     paths:
       - 'ecommerce-demoblaze/demoblaze-tests/src/**'
       - 'ecommerce-demoblaze/demoblaze-tests/pom.xml'
@@ -28,34 +27,30 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        # PROBLEM: Developers waited 15 mins for builds due to 1GB+ redundant downloads.
-        # SOLUTION: I utilized Maven Caching to persist the .m2 folder across runs.
-        # RESULT: Reduced total execution time by 40% (as highlighted in my Walmart tenure).
         cache: maven
 
     - name: 🏗️ Start Docker Selenium Grid
-      # PROBLEM: At Walmart, tests often failed because they tried to connect to a 'cold' Hub.
-      # SOLUTION: Using '--wait' to poll the healthchecks defined in docker-compose.yml + extra verification.
-      # RESULT: 100% stable environment bootup before the first test class starts.
       run: |
         docker compose up -d --wait --wait-timeout 120
         sleep 15  # Extra warmup for Chrome nodes
         echo "🔍 Grid health check:"
         curl -f http://localhost:4444/wd/hub/status || echo "Grid warmup..."
 
-    - name: 🧪 Run Maven Tests  # ✅ FIXED: Proper indentation + single line Maven
+    - name: 🧪 Run Maven Tests
       env:
         SPLUNK_TOKEN: ${{ secrets.SPLUNK_TOKEN }}
         RUN_ID: ${{ github.run_id }}
       working-directory: ecommerce-demoblaze/demoblaze-tests
-      # PROBLEM: Audit risk if tokens were printed in clear text during failed build logs.
-      # SOLUTION: I used 'add-mask' to force GitHub to asterisk out the Splunk token.
-      # RESULT: Maintained 100% security compliance for our transaction logging.
       run: |
         echo "::add-mask::$SPLUNK_TOKEN"
-        mkdir -p target/reports logs  # ✅ PRE-CREATE reports dir (fixes ExtentManager)
-        # ✅ FIXED: Single line Maven (no backslash parsing issues)
-        mvn clean test -Dheadless=true -Dexecution_env=remote -Dsplunk.token=$SPLUNK_TOKEN -Dreport.dir=target/reports -Dmaven.test.failure.ignore=true
+        mkdir -p target/reports logs
+        # Added -Duser.dir=$(pwd) to ensure ExtentReports finds the right target path
+        mvn clean test -Dheadless=true \
+          -Dexecution_env=remote \
+          -Dsplunk.token=$SPLUNK_TOKEN \
+          -Dreport.dir=target/reports \
+          -Duser.dir=$(pwd) \
+          -Dmaven.test.failure.ignore=true
 
     - name: 🧪🔍 FINAL DEBUG - Full Test Execution Log
       if: always()
@@ -64,26 +59,26 @@ jobs:
         echo "=== TEST DISCOVERY ==="
         find src/test/java -name "*Test.java" | head -3 || echo "❌ NO TEST CLASSES"
         echo "=== CONFIG LOADED? ==="
-        grep "CONFIG: Loaded" target/surefire-reports/*.txt || echo "❌ NO CONFIG LOGS"
+        grep -r "CONFIG: Loaded" target/surefire-reports/ || echo "❌ NO CONFIG LOGS"
         echo "=== SUREFIRE REPORTS ==="
         ls -la target/surefire-reports/ 2>/dev/null || echo "❌ NO TEST EXECUTION"
         echo "=== EXTENT REPORTS? ==="
         ls -la target/reports/ 2>/dev/null || echo "❌ NO EXTENT HTML"
 
-    - name: 🔍 List Generated Files  # ✅ DEBUG STEP
+    - name: 🔍 List Generated Files
       if: always()
       working-directory: ecommerce-demoblaze/demoblaze-tests
       run: |
         echo "📁 Contents of target/:"
         ls -la target/ || echo "target/ not found"
-
+        
         echo "📁 Contents of target/reports/:"
-        # Use -d to check if directory exists to avoid 'ls' error noise
         if [ -d "target/reports" ]; then
           ls -la target/reports/
         else
           echo "reports/ directory does not exist"
         fi
-
+        
         echo "🔍 All HTML files:"
-        find target/ -name "*.html" -o -name "index.html"
+        # FIXED: Added missing closing quotes and proper search pattern
+        find target/ -name "*.html"
