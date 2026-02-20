@@ -1,7 +1,7 @@
 package com.irfan.ecommerce.util;
 import java.io.IOException;
-import java.io.FileInputStream;
 import java.util.Properties;
+import java.io.InputStream;
 
 /**
  * ConfigReader: Handles Environment Orchestration.
@@ -20,17 +20,21 @@ public class ConfigReader {
     static {
         try {
             prop = new Properties();
-            // 1. Get the environment from Maven command line, default to 'qa'
             String env = System.getProperty("env", "qa"); 
             
-            // 2. Build the path to your specific folder structure
-            String configPath = "src/main/resources/config/" + env + ".properties";
+            // ✅ FIXED: Use ClassLoader for Maven/JAR compatibility
+            String resourcePath = "config/" + env + ".properties";
+            InputStream is = ConfigReader.class.getClassLoader()
+                .getResourceAsStream(resourcePath);
+                
+            if (is == null) {
+                throw new RuntimeException("❌ config/" + env + ".properties not found in classpath!");
+            }
             
-            FileInputStream fis = new FileInputStream(configPath);
-            prop.load(fis);
-            System.out.println("CONFIG: Successfully loaded " + env + " environment settings.");
+            prop.load(is);
+            System.out.println("✅ CONFIG: Loaded config/" + env + ".properties");
         } catch (IOException e) {
-            throw new RuntimeException("FATAL: Could not find config file at src/main/resources/config/! " + e.getMessage());
+            throw new RuntimeException("FATAL: Could not load config properties! " + e.getMessage(), e);
         }
     }
 

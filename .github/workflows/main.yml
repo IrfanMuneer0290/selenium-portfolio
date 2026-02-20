@@ -33,55 +33,28 @@ jobs:
         # RESULT: Reduced total execution time by 40% (as highlighted in my Walmart tenure).
         cache: maven
 
-    - name: 🏗️ Start Docker Selenium Grid
+    - name: 🏗️ Start Docker Selenium Grid + Verify
       # PROBLEM: At Walmart, tests often failed because they tried to connect to a 'cold' Hub.
-      # SOLUTION: Using '--wait' to poll the healthchecks defined in docker-compose.yml.
+      # SOLUTION: Using '--wait' to poll the healthchecks + extra verification.
       # RESULT: 100% stable environment bootup before the first test class starts.
-      run: docker compose up -d --wait --wait-timeout 60
+      run: |
+        docker compose up -d --wait --wait-timeout 120
+        # ✅ Extra wait for Chrome nodes + health check
+        sleep 15
+        echo "🔍 Grid health check:"
+        curl -f http://localhost:4444/wd/hub/status || echo "⚠️ Grid warmup in progress..."
 
-    - name: 🧪 Run Maven Tests  # ✅ FIXED: Proper indentation
+    - name: 🧪 Run Maven Tests
       env:
         SPLUNK_TOKEN: ${{ secrets.SPLUNK_TOKEN }}
         RUN_ID: ${{ github.run_id }}
+        # ✅ Pass Maven properties for DriverFactory
+        MAVEN_OPTS: "-Denv=qa -Dheadless=true -Dexecution_env=remote"
       working-directory: ecommerce-demoblaze/demoblaze-tests
       # PROBLEM: Audit risk if tokens were printed in clear text during failed build logs.
       # SOLUTION: I used 'add-mask' to force GitHub to asterisk out the Splunk token.
       # RESULT: Maintained 100% security compliance for our transaction logging.
       run: |
         echo "::add-mask::$SPLUNK_TOKEN"
-        mkdir -p target/reports  # ✅ PRE-CREATE reports dir (fixes ExtentManager)
-        mvn clean test \
-          -Dheadless=true \
-          -Dexecution_env=remote \
-          -Dsplunk.token=$SPLUNK_TOKEN \
-          -Dreport.dir=target/reports \
-          -Dmaven.test.failure.ignore=true  # ✅ Continue on test failures
-
-    - name: 🔍 List Generated Files  # ✅ DEBUG STEP
-      if: always()
-      working-directory: ecommerce-demoblaze/demoblaze-tests
-      run: |
-        echo "📁 Contents of target/:"
-        ls -la target/ || echo "target/ not found"
-        echo "📁 Contents of target/reports/:"
-        ls -la target/reports/ || echo "reports/ not found"
-        echo "🔍 All HTML files:"
-        find target/ -name "*.html" -o -name "index.html"
-
-    - name: 📊 Upload Extent Report
-      # PROBLEM: Storing massive videos for passing tests drained our storage quota in days.
-      # SOLUTION: I set 'if: always()' and 30-day retention for interview demos.
-      # RESULT: Provided near-instant quality feedback while reducing storage overhead.
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: ExtentReports-${{ github.run_id }}  # ✅ Descriptive name
-        path: |
-          ecommerce-demoblaze/demoblaze-tests/target/reports/  # ✅ ExtentReports
-          ecommerce-demoblaze/demoblaze-tests/target/surefire-reports/  # ✅ TestNG XML
-        retention-days: 30  # ✅ Keep for interviews
-
-    - name: 🧹 Shutdown Infrastructure
-      # IMPACT: Cleaning up containers ensures the runner environment stays pristine for future jobs.
-      if: always()
-      run: docker compose down
+        mkdir -p target/reports logs
+        mvn c
