@@ -17,8 +17,6 @@ jobs:
     steps:
     - name: 📥 Checkout Code
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
 
     - name: ☕ Set up JDK 17
       uses: actions/setup-java@v4
@@ -30,50 +28,42 @@ jobs:
     - name: 🏗️ Start Docker Selenium Grid
       run: |
         docker compose up -d --wait --wait-timeout 120
-        sleep 15
-        echo "🔍 Grid health check:"
-        curl -f http://localhost:4444/wd/hub/status || echo "Grid warming up..."
+        sleep 10
 
     - name: 🧪 Run Maven Tests
       env:
         SPLUNK_TOKEN: ${{ secrets.SPLUNK_TOKEN }}
-        RUN_ID: ${{ github.run_id }}
       working-directory: ecommerce-demoblaze/demoblaze-tests
       run: |
         echo "::add-mask::$SPLUNK_TOKEN"
-        # Ensure directories exist for listeners to write into
-        mkdir -p target/reports logs
         
-        # IMPACT: Added 'test-compile' to fix 'Listener not found' error.
-        # IMPACT: Added -Duser.dir to anchor relative paths in the sub-module.
+        # Pre-create directory for Extent Reports
+        mkdir -p target/reports
+        
+        # SOLUTION: Force compilation first, then run tests with the fixed listener name in testng.xml
         mvn clean test-compile test \
           -Dheadless=true \
           -Dexecution_env=remote \
           -Dsplunk.token=$SPLUNK_TOKEN \
           -Dreport.dir=target/reports \
           -Duser.dir=$(pwd) \
-          -Dmaven.test.failure.ignore=true
+          -Dmaven.test.failure.ignore=true \
+          -Dsurefire.useSystemClassLoader=false
 
     - name: 📊 Upload Test Artifacts
       if: always()
       uses: actions/upload-artifact@v4
       with:
         name: execution-reports
-        path: |
-          ecommerce-demoblaze/demoblaze-tests/target/surefire-reports/
-          ecommerce-demoblaze/demoblaze-tests/target/reports/
+        path: ecommerce-demoblaze/demoblaze-tests/target/
         retention-days: 7
 
-    - name: 🧪🔍 FINAL DEBUG - Locate Reports
+    - name: 🧪🔍 FINAL DEBUG
       if: always()
       working-directory: ecommerce-demoblaze/demoblaze-tests
       run: |
         echo "=== VERIFYING LISTENER CLASS ==="
-        find target/test-classes -name "ExtentReportListener.class" || echo "❌ Listener class NOT compiled!"
+        find target/test-classes -name "Listeners.class"
         
-        echo "=== CHECKING FOR ANY HTML REPORT ==="
+        echo "=== CHECKING FOR EXTENT HTML ==="
         find target/ -name "*.html"
-        
-        echo "=== DIRECTORY VERIFICATION ==="
-        ls -la target/surefire-reports/index.html || echo "❌ Surefire index missing"
-        ls -la target/reports/ || echo "❌ Extent folder empty"
