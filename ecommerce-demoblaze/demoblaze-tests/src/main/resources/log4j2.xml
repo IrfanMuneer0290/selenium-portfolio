@@ -9,7 +9,20 @@
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
 
-        <!-- FIXED Splunk HEC for GitHub Actions -->
+         <!-- 
+        LOG4J2 CONFIGURATION: The "Observability" Engine.
+
+            THE WALMART HEADACHE I FIXED:
+            - THE PROBLEM: We were running thousands of tests in the cloud, but when 
+                something failed, I had to manually log into a Linux server just to find 
+                the log file. It was taking way too long to find the root cause.
+            - WHAT I DID: I configured this multi-appender system. It still logs to the 
+                Console and a File, but I added a "Splunk HEC" (HTTP Event Collector). 
+                Now, every log line is sent instantly to a Splunk Dashboard.
+            - THE RESULT: I created a "Quality Dashboard" for the whole team. If a 
+                service goes down, we see the red alerts in Splunk before the tests 
+                even finish. It turned my logs into real-time monitoring.
+        -->
         <SplunkHttp name="Splunk"
                     url="https://YOUR_SPLUNK_URL.splunkcloud.com:8088/services/collector"
                     token="${env:SPLUNK_TOKEN}"
