@@ -51,6 +51,7 @@ jobs:
         echo "::add-mask::$SPLUNK_TOKEN"
         mkdir -p target/reports  # ✅ PRE-CREATE reports dir (fixes ExtentManager)
         mvn clean test \
+          -DsuiteXmlFile=src/test/resources/testng.xml \
           -Dheadless=true \
           -Dexecution_env=remote \
           -Dsplunk.token=$SPLUNK_TOKEN \
