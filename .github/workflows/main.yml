@@ -76,7 +76,14 @@ jobs:
       run: |
         echo "📁 Contents of target/:"
         ls -la target/ || echo "target/ not found"
+
         echo "📁 Contents of target/reports/:"
-        ls -la target/reports/ || echo "reports/ not found"
+        # Use -d to check if directory exists to avoid 'ls' error noise
+        if [ -d "target/reports" ]; then
+          ls -la target/reports/
+        else
+          echo "reports/ directory does not exist"
+        fi
+
         echo "🔍 All HTML files:"
-        find target/ -name "*.html" -o -name "index.htm
+        find target/ -name "*.html" -o -name "index.html"
