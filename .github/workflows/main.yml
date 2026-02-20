@@ -3,8 +3,6 @@ name: 🛒 DemoBlaze 1% Elite CI Pipeline
 on:
   push:
     branches: [ "main" ]
-    # PROBLEM: We wasted thousands of dollars in cloud costs running 4-hour suites for README fixes.
-    # SOLUTION: At Walmart, I introduced 'Path Filtering' to trigger tests only for functional code.
     paths:
       - 'ecommerce-demoblaze/demoblaze-tests/src/**'
       - 'ecommerce-demoblaze/demoblaze-tests/pom.xml'
@@ -20,7 +18,7 @@ jobs:
     - name: 📥 Checkout Code
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0 # IMPACT: Needed for SonarQube/Blame data to track quality trends.
+        fetch-depth: 0
 
     - name: ☕ Set up JDK 17
       uses: actions/setup-java@v4
@@ -32,19 +30,17 @@ jobs:
     - name: 🏗️ Start Docker Selenium Grid
       run: |
         docker compose up -d --wait --wait-timeout 120
-        sleep 15  # Extra warmup for Chrome nodes
-        echo "🔍 Grid health check:"
+        sleep 15
         curl -f http://localhost:4444/wd/hub/status || echo "Grid warmup..."
 
     - name: 🧪 Run Maven Tests
       env:
         SPLUNK_TOKEN: ${{ secrets.SPLUNK_TOKEN }}
-        RUN_ID: ${{ github.run_id }}
       working-directory: ecommerce-demoblaze/demoblaze-tests
       run: |
         echo "::add-mask::$SPLUNK_TOKEN"
-        mkdir -p target/reports logs
-        # Added -Duser.dir=$(pwd) to ensure ExtentReports finds the right target path
+        mkdir -p target/reports
+        # Added -Duser.dir to ensure Java process anchors correctly
         mvn clean test -Dheadless=true \
           -Dexecution_env=remote \
           -Dsplunk.token=$SPLUNK_TOKEN \
@@ -52,33 +48,23 @@ jobs:
           -Duser.dir=$(pwd) \
           -Dmaven.test.failure.ignore=true
 
-    - name: 🧪🔍 FINAL DEBUG - Full Test Execution Log
+    - name: 📊 Upload Test Reports
       if: always()
-      working-directory: ecommerce-demoblaze/demoblaze-tests
-      run: |
-        echo "=== TEST DISCOVERY ==="
-        find src/test/java -name "*Test.java" | head -3 || echo "❌ NO TEST CLASSES"
-        echo "=== CONFIG LOADED? ==="
-        grep -r "CONFIG: Loaded" target/surefire-reports/ || echo "❌ NO CONFIG LOGS"
-        echo "=== SUREFIRE REPORTS ==="
-        ls -la target/surefire-reports/ 2>/dev/null || echo "❌ NO TEST EXECUTION"
-        echo "=== EXTENT REPORTS? ==="
-        ls -la target/reports/ 2>/dev/null || echo "❌ NO EXTENT HTML"
+      uses: actions/upload-artifact@v4
+      with:
+        name: execution-reports
+        path: |
+          ecommerce-demoblaze/demoblaze-tests/target/surefire-reports/
+          ecommerce-demoblaze/demoblaze-tests/target/reports/
+        retention-days: 7
 
-    - name: 🔍 List Generated Files
+    - name: 🧪🔍 FINAL DEBUG
       if: always()
       working-directory: ecommerce-demoblaze/demoblaze-tests
       run: |
-        echo "📁 Contents of target/:"
-        ls -la target/ || echo "target/ not found"
-        
-        echo "📁 Contents of target/reports/:"
-        if [ -d "target/reports" ]; then
-          ls -la target/reports/
-        else
-          echo "reports/ directory does not exist"
-        fi
-        
-        echo "🔍 All HTML files:"
-        # FIXED: Added missing closing quotes and proper search pattern
+        echo "=== CHECKING FOR ANY HTML REPORT ==="
+        # This finds where Extent actually saved the file
         find target/ -name "*.html"
+        
+        echo "=== DIRECTORY STRUCTURE ==="
+        ls -R target/reports/ || echo "Extent folder empty"
