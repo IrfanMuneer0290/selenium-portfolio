@@ -24,6 +24,9 @@
             
             <!-- TIER 3: Transactional Persistence & Cart Logic -->
             <class name="com.irfan.ecommerce.ui.tests.CartWorkflowTest" />
+
+    <!-- API Tests (ONE TEST) -->
+             <class name="com.irfan.ecommerce.api.tests.ApiValidationTest" />
         </classes>
     </test>
 </suite>

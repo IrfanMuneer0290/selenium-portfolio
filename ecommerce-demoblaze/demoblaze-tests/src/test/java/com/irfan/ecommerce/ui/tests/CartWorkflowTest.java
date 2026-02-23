@@ -45,7 +45,7 @@ public class CartWorkflowTest extends BaseTest {
         logger.info("ACTION: Navigating to Cart Page.");
         GenericActions.click(ObjectRepo.NAV_CART);
 
-        CartPage cartPage = new CartPage();
+        CartPage cartPage = new CartPage(getDriver());
         boolean isPresent = cartPage.isProductInCart(product);
 
         Assert.assertTrue(isPresent, "CRITICAL: Product disappeared from Cart! Session loss detected.");
