@@ -3,82 +3,52 @@ package com.irfan.ecommerce.ui.base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import java.net.URL; 
-
-/**
- * DriverFactory: The Engine that powers parallel execution.
- * 
- * THE WALMART HEADACHE I FIXED:
- * - THE PROBLEM: When I tried to run 100 tests at once in Walmart’s private cloud, 
- *   the sessions were crashing and "bleeding" into each other. Also, running 
- *   tests with a UI on a Linux server is impossible—it just hangs forever.
- * - WHAT I DID: I used 'ThreadLocal' to keep every browser session strictly 
- *   private. I also added a "Remote" mode so the tests can talk to a 
- *   Selenium Grid in Docker, and a "Headless" mode so it runs perfectly 
- *   on Linux servers without needing a monitor.
- * - THE RESULT: I could scale from 1 test to 50 tests instantly. The execution 
- *   time for the full suite dropped from 2 hours to 10 minutes.
- * 
- * Author: Irfan Muneer
- */
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class DriverFactory {
-    private static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+    private static final Logger logger = LogManager.getLogger(DriverFactory.class);
 
-    public static WebDriver initDriver(String browser) {
-        String executionEnv = System.getProperty("execution_env", "local");
-        String headless = System.getProperty("headless", "false");
+    public static WebDriver initDriver(String browserName) {
+        logger.info("🔧 Thread [{}] initDriver({})", Thread.currentThread().getId(), browserName);
         
-        if (browser == null || browser.isEmpty()) {
-            browser = "chrome";
-        }
-
-        if (browser.equalsIgnoreCase("chrome")) {
-            ChromeOptions options = new ChromeOptions();
-            options.setCapability("se:cdp", false); 
-            options.addArguments("--remote-allow-origins=*");
-
-            if ("true".equalsIgnoreCase(headless)) {
-                options.addArguments("--headless=new");
-                options.addArguments("--window-size=1920,1080");
-                options.addArguments("--no-sandbox");
-                options.addArguments("--disable-dev-shm-usage");
-                options.addArguments("--disable-gpu");
-                
-            }
-
-            try {
-                if (executionEnv.equalsIgnoreCase("remote")) {
-                    // 🐋 Remote Docker Execution
-                    tlDriver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options));
-                } else {
-                    // 💻 Local Execution
-                    WebDriverManager.chromedriver().setup();
-                    tlDriver.set(new ChromeDriver(options));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        // Only maximize if NOT in headless mode to avoid CI crashes
-        if (!"true".equalsIgnoreCase(headless) && getDriver() != null) {
-            getDriver().manage().window().maximize();
-        }
+        // CRITICAL: Remove old driver first
+        quitDriver();
         
-        return getDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        
+        try {
+            WebDriverManager.chromedriver().setup();
+            WebDriver driver = new ChromeDriver(options);
+            tlDriver.set(driver);  // THREAD-SAFE SET
+            
+            logger.info("✅ Thread [{}] driver created: {}", Thread.currentThread().getId(), driver);
+            return driver;
+            
+        } catch (Exception e) {
+            logger.error("❌ Thread [{}] driver creation FAILED", Thread.currentThread().getId(), e);
+            throw new RuntimeException("Driver init failed", e);
+        }
     }
 
-    public static synchronized WebDriver getDriver() {
-        return tlDriver.get();
+    public static WebDriver getDriver() {
+        WebDriver driver = tlDriver.get();
+        if (driver == null) {
+            logger.warn("⚠️ Thread [{}] driver NULL - forcing init", Thread.currentThread().getId());
+            return initDriver("chrome");
+        }
+        return driver;
     }
 
     public static void quitDriver() {
-        if (getDriver() != null) {
-            getDriver().quit();
+        WebDriver driver = tlDriver.get();
+        if (driver != null) {
+            driver.quit();
             tlDriver.remove();
+            logger.info("🧹 Thread [{}] driver quit + ThreadLocal cleared", Thread.currentThread().getId());
         }
     }
 }
