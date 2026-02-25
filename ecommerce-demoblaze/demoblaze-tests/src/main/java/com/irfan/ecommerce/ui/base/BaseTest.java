@@ -29,7 +29,7 @@ import org.openqa.selenium.Cookie;
 
 public class BaseTest {
     public WebDriver driver;
-    private static final Logger logger = LogManager.getLogger(BaseTest.class);
+    protected static final Logger logger = LogManager.getLogger(BaseTest.class);
     private AuthClient authClient = new AuthClient();
 
     @BeforeMethod
