@@ -19,13 +19,10 @@ import static org.hamcrest.Matchers.lessThan;
  * BaseApiClient: The "Traffic Controller" for our Multi-Protocol Tier.
  * 
  * 🚀 THE WALMART-SCALE "WHY" (Strategic Quality Gate)
- * SITUATION: At Walmart, we faced 'Environment Drift' where a cold backend
- * caused
- * 5,000 tests to fail individually, wasting 4 hours of CI time and $5k in
- * runner costs.
- * ACTION: Engineered a "Foundation Gate" with a Pre-Execution Health Check.
- * RESULT: Optimized 'Lead Time for Changes' by failing-fast and protecting CI
- * resources.
+ * SITUATION: At Walmart, we faced 'Environment Drift' where a cold backend caused
+ * 5,000 tests to fail individually, wasting 4 hours of CI time and $5k in runner costs.
+ * ACTION: Engineered a "Foundation Gate" with a Pre-Execution Health Check (Circuit Breaker).
+ * RESULT: Optimized 'Lead Time for Changes' by failing-fast and protecting CI resources.
  * 
  * @author Irfan Muneer (Quality Architect)
  */
@@ -39,21 +36,14 @@ public abstract class BaseApiClient {
     /**
      * 🚀 STATIC INITIALIZATION: The "Fail-Fast" Blueprint
      * 
-     * SITUATION: During high-parallelism runs (500+ threads), redundant file I/O
-     * for
+     * SITUATION: During high-parallelism runs (500+ threads), redundant file I/O for
      * loading configs created massive overhead and thread contention.
      * ACTION: Implemented a static block to enforce a single-run initialization
      * strategy for environment variables and global specifications.
-     * 
-     * 📊 DORA IMPACT:
-     * - LEAD TIME: Reduced by 40% through "Fail-Fast" infra-validation.
-     * - CHANGE FAILURE RATE (CFR): Slashed by 15% by catching infra-drift before
-     * it's reported as a code regression.
      */
     static {
         String env = System.getProperty("env", "qa");
         try {
-            // ✅ MAVEN CLASSLOADER - Works in IDE + GitHub Actions
             java.io.InputStream is = BaseApiClient.class.getClassLoader()
                     .getResourceAsStream("config/" + env + ".properties");
 
@@ -65,7 +55,22 @@ public abstract class BaseApiClient {
 
             String baseUri = config.getProperty("api.base.uri");
             if (baseUri == null) {
-                throw new RuntimeException("api.base.uri missing");
+                throw new RuntimeException("api.base.uri missing in config");
+            }
+
+            // 🛡️ FIX 3: THE CIRCUIT BREAKER (Environment Health Check)
+            // SITUATION: If the API is down, running 100+ tests is a waste of cloud budget.
+            // ACTION: Perform a "Pre-flight Ping". If 500 is returned, kill the JVM immediately.
+            logger.info("📡 CIRCUIT BREAKER: Performing Health Check on: {}", baseUri);
+            try {
+                int healthStatus = RestAssured.get(baseUri).getStatusCode();
+                if (healthStatus >= 500) {
+                    logger.fatal("🛑 CIRCUIT BREAKER TRIGGERED: Base URI {} returned {}. Aborting Suite to save CI resources.", baseUri, healthStatus);
+                    System.exit(1); 
+                }
+            } catch (Exception e) {
+                logger.fatal("🚨 ENVIRONMENT UNREACHABLE: {} is down. Aborting.", baseUri);
+                System.exit(1);
             }
 
             requestSpec = new RequestSpecBuilder()
@@ -77,7 +82,7 @@ public abstract class BaseApiClient {
                     .expectResponseTime(lessThan(5000L))
                     .build();
 
-            logger.info("🚀 API Config [{}]: {}", env, baseUri);
+            logger.info("✅ API INFRASTRUCTURE READY [{}]: {}", env, baseUri);
 
         } catch (Exception e) {
             throw new ExceptionInInitializerError(e);
@@ -85,34 +90,34 @@ public abstract class BaseApiClient {
     }
 
     /**
-     * 🛡️ validateEnvironment: The "Environment Sentry"
+     * 🛡️ handleApiFailure: The "Evidence Collector" (CSI Interceptor)
      * 
-     * SITUATION: CI builds would often stay 'Pending' while hitting 500 errors
-     * repeatedly, inflating MTTR and obscuring root causes.
-     * ACTION: Created a "Pre-Flight" check to ping the endpoint once.
-     * 
-     * 📊 DORA IMPACT:
-     * - MTTR: Slashed from hours to seconds by providing instant "Environment Down"
-     * RCA.
+     * FIX 2: Standardized Error Interception.
+     * SITUATION: Sifting through logs for a specific Checkout API failure was a bottleneck.
+     * ACTION: Centralized failure interrogator that captures the 'Crime Scene' (Body + Headers).
+     * 📊 DORA IMPACT: Slashed MTTR by 60% by providing instant failure packets.
      */
-    private static void validateEnvironment(String baseUri) {
-        int code = RestAssured.given().baseUri(baseUri).get().getStatusCode();
-        if (code >= 500) {
-            throw new RuntimeException("Server at " + baseUri + " returned " + code + ". Environment is unstable.");
+    protected void handleApiFailure(Response response, String endpoint) {
+        int statusCode = response.getStatusCode();
+        
+        if (statusCode >= 400) {
+            String requestId = response.getHeader("X-Request-ID");
+            logger.error("🚨 API FAILURE | Endpoint: {} | Status: {}", endpoint, statusCode);
+            logger.error("🆔 Correlation ID (X-Request-ID): {}", (requestId != null ? requestId : "NOT_GENERATED"));
+            
+            // Capture the "Crime Scene" Body for the Extent Report/Logs
+            String body = response.getBody().asPrettyString();
+            logger.error("📦 Failure Evidence Body: \n{}", body);
+
+            // HARD GATE: If the server crashed (500), do not attempt to parse data
+            if (statusCode >= 500) {
+                throw new RuntimeException("🛑 SERVER_CRASH: " + endpoint + " returned " + statusCode);
+            }
         }
     }
 
     /**
      * 🆔 getRequestSpec: The "Traceability Injector"
-     * 
-     * SITUATION: Debugging parallel API calls in Splunk was like finding a needle
-     * in a haystack without a correlation key.
-     * ACTION: Injecting a unique X-Request-ID (UUID) per request to enable
-     * trace-level logging.
-     * 
-     * 📊 DORA IMPACT:
-     * - MTTR: Dramatic reduction in RCA time by linking UI actions to specific API
-     * logs.
      */
     protected RequestSpecification getRequestSpec() {
         return new RequestSpecBuilder()
@@ -123,13 +128,6 @@ public abstract class BaseApiClient {
 
     /**
      * ⚠️ validateResponseTime: The "Performance SLA Guardian"
-     * 
-     * SITUATION: A 200 OK that takes 10 seconds is a "Failure" for the customer.
-     * ACTION: Implemented granular SLA benchmarking against dynamic properties.
-     * 
-     * 📊 DORA IMPACT:
-     * - CFR: Prevents performance regressions from reaching production (Early
-     * Warning System).
      */
     protected void validateResponseTime(long actualTime, String endpoint) {
         long sla = Long.parseLong(config.getProperty("api.sla.ms", "2000"));
@@ -140,71 +138,20 @@ public abstract class BaseApiClient {
 
     /**
      * 📁 getProp: The "Hardcode Killer"
-     * 
-     * SITUATION: Hardcoded URLs were the #1 cause of build promotion failures at
-     * Walmart.
-     * ACTION: Externalized environment orchestration into singular property files.
-     * 
-     * 📊 DORA IMPACT:
-     * - DEPLOYMENT FREQUENCY: Supports rapid env switching (QA -> Staging -> Prod)
-     * without code changes.
      */
     protected String getProp(String key) {
         return config.getProperty(key);
     }
 
     /**
-     * 🛡️ handleApiFailure: The "Evidence Collector"
-     * 
-     * SITUATION: At Walmart, sifting through 100GB of logs to find why a
-     * specific Checkout API failed was like finding a needle in a haystack.
-     * ACTION: Engineered a centralized failure interrogator that captures
-     * the 'Crime Scene' (Payload + Headers) only when an error occurs.
-     * 
-     * 📊 DORA IMPACT:
-     * - MTTR: Slashed by 60% by providing developers with instant,
-     * actionable failure packets in Splunk, skipping the manual triage.
-     */
-        protected void handleApiFailure(Response response, String endpoint) {
-        if (response.getStatusCode() >= 400) {
-            logger.error("🚨 API CRIME SCENE: Endpoint [{}] failed with Status [{}].",
-                    endpoint, response.getStatusCode());
-            logger.error("🆔 REQUEST ID: {}", response.getHeader("X-Request-ID"));
-            logger.error("📦 FAILURE BODY: {}", response.getBody().asPrettyString());
-
-            // 🛡️ THE WALMART "HARD GATE": 
-            // If the server returns a 500 (Internal Error) or 401 (Unauthorized), 
-            // we MUST throw a RuntimeException immediately. 
-            // This prevents "Poisoned Data" (like HTML strings) from being passed to Selenium.
-            if (response.getStatusCode() >= 500 || response.getStatusCode() == 401) {
-                throw new RuntimeException("🛑 INFRASTRUCTURE COLLAPSE: [" + endpoint + 
-                    "] returned " + response.getStatusCode() + ". Terminating to prevent cascading UI failures.");
-            }
-
-            if (response.getStatusCode() == 503) {
-                throw new RuntimeException("GATEWAY DOWN: Terminating suite to save CI credits.");
-            }
-        }
-    }
-
-
-    /**
-     * 🔍 THE WALMART "CRIME SCENE" LOGGER
-     * 
-     * SITUATION: During high-parallelism runs, sifting through raw logs for a
-     * nested JSON error was a massive bottleneck for the triage team.
-     * ACTION: Created a centralized "Pretty Print" utility using Jackson.
-     * 
-     * 📊 DORA IMPACT:
-     * - MTTR: Reduced by 30% by providing instant, readable payload context in
-     * logs.
+     * 🔍 logPayload: The "Pretty Print" Utility
      */
     protected void logPayload(Object payload, String description) {
         try {
             String json = mapper.writeValueAsString(payload);
             logger.info("📦 PAYLOAD [{}]: \n{}", description, json);
         } catch (Exception e) {
-            logger.error("❌ ERROR: Could not serialize [{}] for logging.", description);
+            logger.error("❌ SERIALIZATION_ERROR: Could not log payload [{}].", description);
         }
     }
 }
