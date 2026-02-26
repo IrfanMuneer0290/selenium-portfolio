@@ -7,6 +7,17 @@
     <test name="Idempotency Test">
         <classes>
             <class name="com.irfan.ecommerce.api.tests.IdempotencyTest" />
+             <!-- TIER 1: Availability & Branding -->
+            <class name="com.irfan.ecommerce.ui.tests.HomePageTest" />
+            
+            <!-- TIER 2: Data Integrity & Pricing -->
+            <class name="com.irfan.ecommerce.ui.tests.ProductDetailTest" />
+            
+            <!-- TIER 3: Transactional Persistence & Cart Logic -->
+            <class name="com.irfan.ecommerce.ui.tests.CartWorkflowTest" />
+
+            <!-- TIER 4: Hybrid API-UI Teleport (The 1% Elite Move) -->
+            <class name="com.irfan.ecommerce.ui.tests.CartHybridTest" />
         </classes>
     </test>
 </suite>
