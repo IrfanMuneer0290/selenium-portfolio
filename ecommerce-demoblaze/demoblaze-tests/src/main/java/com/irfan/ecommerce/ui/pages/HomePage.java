@@ -1,18 +1,11 @@
 package com.irfan.ecommerce.ui.pages;
-import java.time.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.irfan.ecommerce.ui.base.DriverFactory;
-import com.irfan.ecommerce.util.ConfigReader;
+import com.irfan.ecommerce.ui.base.BasePage;
 import com.irfan.ecommerce.util.GenericActions;
 import com.irfan.ecommerce.util.ObjectRepo;
+import com.irfan.ecommerce.util.PropertyReader;
 
 /**
  * HomePage: The "First Impression" of the Automation Suite.
@@ -27,53 +20,43 @@ import com.irfan.ecommerce.util.ObjectRepo;
  * - THE RESULT: 100% reliability during the initial "Page Load" phase. No more 
  *   random failures at the start of the test suite.
  */
-public class HomePage {
-     private static final Logger logger = LogManager.getLogger(HomePage.class);
-    private WebDriver driver = DriverFactory.getDriver();
-    private final String URL = "https://www.demoblaze.com/";
-    
-     public HomePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+public class HomePage extends BasePage {
+    private static final Logger logger = LogManager.getLogger(HomePage.class);
+
+    public HomePage(WebDriver driver) {
+        super(driver); // Inherits thread-safe driver from BasePage
     }
 
-    // FIXED LOCATOR - Demoblaze uses this
-    @FindBy(xpath = "//a[contains(text(),'Phones')]") 
-    private WebElement phonesCategory;
-
-    @FindBy(id = "nava")
-    private WebElement storeTitle;
-    
-    public HomePage() {
-        PageFactory.initElements(driver, this);
-    }
-    
     public void open() {
-          // Use the URL from your config.properties
-        GenericActions.navigateTo(ConfigReader.getProperty("url"));
-        // Wait for the Home link to be visible to ensure page is loaded
-        GenericActions.getText(ObjectRepo.NAV_HOME);
+        // Now PropertyReader is resolved!
+        String baseUrl = PropertyReader.getProperty("url");
+        if (baseUrl == null) baseUrl = "https://www.demoblaze.com";
+        
+        driver.get(baseUrl);
+        
+        // SELF-HEALING: Uses String[] from ObjectRepo via GenericActions
+        waitForVisibilityOfElement(ObjectRepo.NAV_HOME);
+        logger.info("✅ HomePage fully loaded and synchronized.");
     }
 
-    /**
-     * I added an Explicit Wait here because 'storeTitle' is the main 
-     * anchor. If this isn't visible, the whole page isn't ready.
-     */
     public String getTitleText() {
-         // Using 'SPLUNK' in logs makes it easy for DevOps to monitor test health
-         logger.info("SPLUNK_MONITOR: Home Page getTitleText initiated.");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(storeTitle));
-        return storeTitle.getText();
-    }
-    
-    public String getPhonesCategoryText() {
-        return phonesCategory.getText();
+        logger.info("SPLUNK_MONITOR: Home Page getTitleText initiated.");
+        waitForVisibilityOfElement(ObjectRepo.NAV_HOME);
+        return GenericActions.getText(ObjectRepo.NAV_HOME);
     }
 
     public void clickProductByName(String productName) {
-    // This uses the dynamic %s locator from your ObjectRepo
-    // It will automatically 'Wait' up to 10 seconds now!
-    GenericActions.click(ObjectRepo.CATEGORY_DYNAMIC, productName);
+        GenericActions.click(ObjectRepo.CATEGORY_DYNAMIC, productName);
+    }
+
+   public boolean isUserLoggedIn(String username) {
+    try {
+        // Use a short wait so we don't hang if the login actually failed
+        waitForVisibilityOfElement(ObjectRepo.NAV_USER);
+        return GenericActions.getText(ObjectRepo.NAV_USER).contains(username);
+    } catch (Exception e) {
+        return false;
+    }
 }
+
 }
