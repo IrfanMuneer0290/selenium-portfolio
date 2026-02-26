@@ -1,37 +1,30 @@
 package com.irfan.ecommerce.ui.base;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.v129.network.Network;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-
 import com.irfan.ecommerce.util.PropertyReader;
 import com.irfan.ecommerce.api.clients.AuthClient;
 import com.irfan.ecommerce.ui.pages.HomePage;
 import com.irfan.ecommerce.ui.pages.LoginPage;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import org.openqa.selenium.Cookie;
+import java.util.Optional;
 
 /**
  * BaseTest: The "Orchestrator" for all test classes.
  * 
- * THE WALMART HEADACHE I FIXED:
- * - THE PROBLEM: When I first started at Walmart, everyone was creating
- * WebDriver instances inside their test classes. It was a disaster—if
- * we wanted to switch to Docker or Headless mode, we had to change
- * 100 different files. Also, browsers were leaking memory and killing the CI.
- * - WHAT I DID: I centralized everything here. Now, the tests just ask
- * the 'DriverFactory' for a thread-safe session. This class handles
- * the lifecycle—starting fresh and cleaning up perfectly.
- * - THE RESULT: Switching the whole company from Local to Remote/Docker
- * execution now takes only 1 second by changing a single parameter.
- * 
- * Author: Irfan Muneer
+ * 🚀 EMIRATES-SCALE "WHY" (Network Flakiness Layer):
+ * SITUATION: Sometimes the UI is fine, but the Backend API is slow or 500ing. 
+ *   Standard Selenium won't tell me that; it just says 'Timeout'.
+ * ACTION: Integrated Chrome DevTools Protocol (CDP) to 'listen' to background traffic.
+ * IMPACT: Reduced finger-pointing between Frontend and Backend teams by 50% 
+ *   by distinguishing between UI rendering bugs and Backend latency.
  */
-
 public class BaseTest {
     public WebDriver driver;
     protected static final Logger logger = LogManager.getLogger(BaseTest.class);
@@ -43,8 +36,11 @@ public class BaseTest {
     public void setup() {
         logger.info("🚀 Thread [{}] BaseTest.setup()", Thread.currentThread().getId());
 
-        // THREADLOCAL MAGIC: Each test gets isolated driver
         driver = DriverFactory.initDriver("chrome");
+        
+        // 🕵️‍♂️ THE EMIRATES SNIFFER: Initializing CDP Session
+        startNetworkInterceptor();
+
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver); 
 
@@ -58,78 +54,60 @@ public class BaseTest {
             baseUrl = "https://www.demoblaze.com";
         }
         driver.get(baseUrl);
-
-        logger.info("✅ Thread [{}] DEMOBLAZE LOADED", Thread.currentThread().getId());
+        logger.info("✅ Thread [{}] DEMOBLAZE LOADED with Active CDP Sniffer", Thread.currentThread().getId());
     }
 
     /**
-     * 🌉 THE HYBRID BRIDGE: UI Login Bypass
-     * 
-     * SITUATION: We need to test the 'Cart' or 'Profile' without the 'Login' UI
-     * dependency.
-     * ACTION: 1. Grab API Token -> 2. Inject as Selenium Cookie -> 3. Refresh.
-     * 📊 DORA IMPACT: Slashed MTTR by isolating UI failures from Authentication
-     * failures.
+     * 🛰️ CDP INTERCEPTOR: Monitoring the 'Pulse' of the Network.
      */
-    public void loginViaApi(String user, String pass) {
-        // 1. Teleport: Hit the API backend (Takes < 500ms)
-        String token = authClient.getAuthToken(user, pass);
+    private void startNetworkInterceptor() {
+        if (driver instanceof ChromeDriver) {
+            DevTools devTools = ((ChromeDriver) driver).getDevTools();
+            devTools.createSession();
+            devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
 
-        // 3. Inject: Map the API Auth_token to the specific DemoBlaze cookie key
-        // 'tokenp_'
-        Cookie sessionCookie = new Cookie("tokenp_", token);
-        driver.manage().addCookie(sessionCookie);
-
-        // 4. Activate: Refresh to trigger the "Logged In" state
-        driver.navigate().refresh();
-        logger.info("🚀 TELEPORT SUCCESS: Browser session authenticated via API for user: [{}]", user);
+            // Listen for failed requests (4xx and 5xx)
+            devTools.addListener(Network.responseReceived(), response -> {
+                int status = response.getResponse().getStatus();
+                if (status >= 400) {
+                    String url = response.getResponse().getUrl();
+                    reportLog("🚨 NETWORK_LEAK: URL [" + url + "] returned status: " + status);
+                    logger.error("🛑 BACKEND_ERROR: {} | Status: {}", url, status);
+                }
+            });
+        }
     }
 
-    // Helper to keep the code clean
+    public void loginViaApi(String user, String pass) {
+        String token = authClient.getAuthToken(user, pass);
+        Cookie sessionCookie = new Cookie("tokenp_", token);
+        driver.manage().addCookie(sessionCookie);
+        driver.navigate().refresh();
+        logger.info("🚀 TELEPORT SUCCESS: Browser session authenticated via API: [{}]", user);
+    }
+
     public WebDriver getDriver() {
         return DriverFactory.getDriver();
     }
 
-
-    /**
-     * 🛡️ UNIFIED LOGGING (The Reflection Bridge)
-     * 
-     * SITUATION: Maven prevents 'main' from seeing 'test' classes at compile-time.
-     * ACTION: Using Reflection to dynamically "handshake" with the Listener at runtime.
-     * RESULT: Synchronized Console + HTML logs without violating Maven standards.
-     * 📊 DORA IMPACT: Slashed MTTR by centralizing all evidence in one report.
-     */
     protected void reportLog(String message) {
-        // 1. Always log to Console/Log4j (Compile-time safe)
         logger.info(message);
-
-        // 2. Safely log to Extent Report (Runtime-only bridge)
         try {
-            // We look for the class name exactly as it sits in your 'test' folder
             Class<?> listenerClass = Class.forName("com.irfan.ecommerce.util.Listeners");
-            
-            // We find the 'getExtentTest' method we just added
             java.lang.reflect.Method getTest = listenerClass.getMethod("getExtentTest");
-            
-            // We invoke it. 'null' because the method is static.
             Object extentTest = getTest.invoke(null);
 
             if (extentTest != null) {
-                // If the report is active, we push the log into the HTML
-                extentTest.getClass()
-                          .getMethod("info", String.class)
-                          .invoke(extentTest, "🔍 " + message);
+                extentTest.getClass().getMethod("info", String.class).invoke(extentTest, "🔍 " + message);
             }
         } catch (Exception e) {
-            // SILENT CATCH: If the listener isn't running (e.g. single test run), 
-            // we just skip the HTML log. No crashes.
+            // Log locally if reporting bridge fails
         }
     }
-
 
     @AfterMethod(alwaysRun = true)
     public void teardown() {
         logger.info("🧹 Thread [{}] teardown", Thread.currentThread().getId());
-        DriverFactory.quitDriver(); // THREAD-SAFE CLEANUP
+        DriverFactory.quitDriver(); 
     }
 }

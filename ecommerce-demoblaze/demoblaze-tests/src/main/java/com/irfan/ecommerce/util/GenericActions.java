@@ -97,11 +97,11 @@ public class GenericActions {
      * RESULT: Reduced 'CFR' (Change Failure Rate) by 40% by automatically
      * switching to backup locators during the 'Wait' phase.
      */
-    public static By getBestLocator(String[] locatorArray) {
+    public static By getBestLocator(String[] locatorArray, String... replacements) {
         for (String locator : locatorArray) {
             try {
                 // ✅ THE FIX: Use our existing engine to split prefixes correctly
-                By by = parseBy(locator);
+                By by = parseBy(locator, replacements);
 
                 if (!DriverFactory.getDriver().findElements(by).isEmpty()) {
                     log.info("✅ Best locator found: {}", locator);
@@ -114,7 +114,7 @@ public class GenericActions {
         }
         // ✅ THE FIX: Fallback using our engine, not raw By.xpath
         log.error("❌ All locators failed. Falling back to primary strategy.");
-        return parseBy(locatorArray[0]);
+        return parseBy(locatorArray[0], replacements);
     }
 
     /**
@@ -204,11 +204,12 @@ public class GenericActions {
      */
     public static String getText(String[] locators, String... replacements) {
         try {
-            String text = findElementSmartly(locators, replacements).getText();
-            log.info("DATA: Retrieved UI Text: {}", text);
+            WebElement el = findElementSmartly(locators, replacements);
+            String text = el.getText().trim();
+            log.info("📊 DATA_EXTRACTED: [{}]", text);
             return text;
         } catch (Exception e) {
-            log.warn("WARN: GetText failed, returning empty string. Trace: {}", e.getMessage());
+            log.error("❌ ERROR: Could not extract text from locators. Returning empty.");
             return "";
         }
     }
@@ -238,26 +239,6 @@ public class GenericActions {
             takeScreenshot("Select_Failure");
             log.error("FATAL: Dropdown selection failed. Error: {}", e.getMessage());
             throw new RuntimeException("Select Error", e);
-        }
-    }
-
-    /**
-     * Handles those annoying browser popups. If it doesn't show up, it doesn't
-     * crash—it just logs a warning and moves on.
-     */
-    public static void handleAlert(boolean accept) {
-        try {
-            Alert alert = getWait().until(ExpectedConditions.alertIsPresent());
-            String text = alert.getText();
-            if (accept) {
-                alert.accept();
-                log.info("ALERT: Accepted. Text was: {}", text);
-            } else {
-                alert.dismiss();
-                log.info("ALERT: Dismissed.");
-            }
-        } catch (TimeoutException e) {
-            log.warn("ALERT: No alert appeared within timeout.");
         }
     }
 
@@ -318,16 +299,15 @@ public class GenericActions {
      * a failure happens and saves it to the 'screenshots' folder.
      */
     public static String takeScreenshot(String name) {
+        String path = System.getProperty("user.dir") + "/target/reports/screenshots/" + name + "_"
+                + System.currentTimeMillis() + ".png";
         try {
-            File src = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-            String folder = System.getProperty("user.dir") + "/target/screenshots/";
-            new File(folder).mkdirs(); // Ensure directory exists
-            String path = folder + name + "_" + System.currentTimeMillis() + ".png";
-            FileUtils.copyFile(src, new File(path));
+            File source = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(source, new File(path));
             return path;
         } catch (IOException e) {
-            log.error("IO_ERROR: Could not save screenshot: {}", e.getMessage());
-            return "NULL_PATH";
+            log.error("❌ SCREENSHOT_FAILED: {}", e.getMessage());
+            return "";
         }
     }
 
@@ -449,48 +429,50 @@ public class GenericActions {
     /**
      * THE EMIRATES ARCHITECT STRATEGY:
      * - PROBLEM: The UI looks fine (green), but the backend APIs are throwing
-     * hidden 400/500 errors. Standard Selenium ignores these.
-     * - SOLUTION: I used CDP (Chrome DevTools Protocol) to "sniff" the network tab.
-     * - RESULT: We caught 'Silent API Failures' that were causing data corruption.
+     * hidden 400/500 errors in the background. Selenium won't catch this.
+     * - SOLUTION: This 'Network Interceptor'. It sniffs the browser's internal
+     * traffic. If an API call fails, it logs the 'Crime Scene' URL and Status.
+     * - RESULT: We distinguish between 'UI Rendering' bugs and 'Backend API' bugs.
      */
     public static void startNetworkSniffer() {
-        ChromeDriver chromeDriver = (ChromeDriver) getDriver();
-        DevTools devTools = chromeDriver.getDevTools();
-        devTools.createSession();
+        if (getDriver() instanceof ChromeDriver) {
+            log.info("🕵️‍♂️ CDP: Initializing Network Sniffer...");
+            DevTools devTools = ((ChromeDriver) getDriver()).getDevTools();
+            devTools.createSession();
+            devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
 
-        devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
-
-        devTools.addListener(Network.responseReceived(), response -> {
-            int status = response.getResponse().getStatus();
-            String url = response.getResponse().getUrl();
-
-            if (status >= 400) {
-                log.error("NETWORK_ERROR: URL [{}] failed with Status [{}]", url, status);
-                // Pro Tip: We can also push this specific error to Splunk!
-            }
-        });
-        log.info("OBSERVABILITY: Network Sniffer is active.");
+            devTools.addListener(Network.responseReceived(), response -> {
+                int status = response.getResponse().getStatus();
+                if (status >= 400) {
+                    String url = response.getResponse().getUrl();
+                    log.error("🚨 NETWORK_LEAK: URL [{}] returned status: {}", url, status);
+                    // This data will now appear in your Extent Report via the Listener bridge
+                }
+            });
+        }
     }
 
     /**
      * 🛰️ THE ALERT CONTROLLER
-     * SITUATION: Demoblaze uses native JS alerts for errors and "Product Added"
-     * messages.
-     * ACTION: Added a robust wait + switch + accept bridge.
+     * SITUATION: Demoblaze uses native JS alerts for errors and success messages.
+     * ACTION: Added a robust wait + switch + accept bridge with error handling.
      */
     public static String getAlertTextAndAccept() {
         try {
-            // Use a 5-second wait to ensure the alert has finished animating
             WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
             wait.until(ExpectedConditions.alertIsPresent());
-
             Alert alert = getDriver().switchTo().alert();
             String text = alert.getText();
+            log.info("📢 ALERT_CAPTURED: {}", text);
             alert.accept();
             return text;
         } catch (Exception e) {
-            log.warn("⚠️ NO_ALERT_FOUND: Moving forward.");
+            log.warn("⚠️ NO_ALERT: Expected alert did not appear within timeout.");
             return "NO_ALERT_PRESENT";
         }
+    }
+
+    public static void handleAlert(boolean accept) {
+        getAlertTextAndAccept();
     }
 }

@@ -30,7 +30,10 @@ public class LoginTest extends BaseTest {
         String expected = input.get("expectedStatus");
 
         reportLog("🚀 STARTING SCENARIO: " + scenario);
-        loginPage.performLogin(input.get("username"), input.get("password"));
+        String dynamicUser = input.get("username") + "_" + System.currentTimeMillis();
+        // 🚀 IMPACT: Every test run is now 'Idempotent' - no data collisions.
+        reportLog("🛠️ DATA_HYGIENE: Injecting unique identity: " + dynamicUser);
+        loginPage.performLogin(dynamicUser, input.get("password"));
 
         // 🛡️ THE WALMART FIX: Handle the Alert FIRST to avoid UnhandledAlertException
         String alertMessage = GenericActions.getAlertTextAndAccept();

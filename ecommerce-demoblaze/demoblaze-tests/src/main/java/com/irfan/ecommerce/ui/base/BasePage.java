@@ -20,10 +20,10 @@ public abstract class BasePage {
      * 🛡️ SELF-HEALING WAIT: This handles the String[] arrays from ObjectRepo.
      * It uses your GenericActions logic to find the 'Best' working locator.
      */
-     protected void waitForVisibilityOfElement(String[] locatorArray) {
+     protected void waitForVisibilityOfElement(String[] locatorArray, String replacements) {
         // This is the CRITICAL fix: getBestLocator converts "id:loginusername" 
         // into a real By.id() so Selenium doesn't think it's an XPath.
-        By bestBy = GenericActions.getBestLocator(locatorArray);
+        By bestBy = GenericActions.getBestLocator(locatorArray, replacements);
         wait.until(ExpectedConditions.visibilityOfElementLocated(bestBy));
     }
     /**
