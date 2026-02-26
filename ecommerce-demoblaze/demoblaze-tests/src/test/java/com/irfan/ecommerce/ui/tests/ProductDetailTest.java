@@ -5,8 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.irfan.ecommerce.ui.base.BaseTest;
-import com.irfan.ecommerce.ui.pages.HomePage;    
+import com.irfan.ecommerce.ui.base.BaseTest;  
 import com.irfan.ecommerce.ui.pages.ProductPage; 
 
 /**
@@ -19,7 +18,6 @@ public class ProductDetailTest extends BaseTest {
     public void testProductPricingAndDescription() {
         logger.info("SPLUNK_MONITOR: Starting PDP Integrity Check for 'Samsung galaxy s6'.");
         
-        HomePage homePage = new HomePage(driver);
         homePage.open();
         
         // 1. Navigate to Product using the Dynamic Locator logic in ObjectRepo

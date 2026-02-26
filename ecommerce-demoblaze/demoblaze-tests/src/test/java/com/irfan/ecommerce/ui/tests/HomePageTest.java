@@ -28,19 +28,19 @@ public class HomePageTest extends BaseTest {
 
     @Test(description = "Validates the Brand Identity and Storefront availability.")
     public void testHomePageTitle() {
-        // High-visibility log for the Splunk Dashboard
-        logger.info("SPLUNK_MONITOR: Starting Tier-1 Availability Check for HomePage.");
+        reportLog("🔍 Starting Tier-1 Availability Check for HomePage.");
         
-        HomePage homePage = new HomePage(driver); 
+        // No need to 'new' it here; it's already initialized in BaseTest
         homePage.open();
         
         String actualTitle = homePage.getTitleText();
         
-        // Asserting on the 'STORE' brand identity to confirm UI rendered correctly
-        logger.info("VALIDATION: Checking if brand 'STORE' is present in UI.");
+        reportLog("📊 UI Validation: Checking brand identity. Found: " + actualTitle);
+        
+        // Demoblaze brand is usually "PRODUCT STORE" or contains "STORE"
         Assert.assertTrue(actualTitle.contains("STORE"), 
-            "CRITICAL: Home Page brand title was not found! UI might be broken.");
+            "❌ FAILURE: Brand 'STORE' not found. UI rendering may be incomplete.");
             
-        logger.info("SPLUNK_MONITOR: HomePage Availability Check - PASSED.");
+        reportLog("✅ PASS: Storefront is healthy and accessible.");
     }
 }

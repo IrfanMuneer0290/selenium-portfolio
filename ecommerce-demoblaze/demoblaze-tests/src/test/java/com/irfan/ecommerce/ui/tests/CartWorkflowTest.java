@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.irfan.ecommerce.ui.base.BaseTest;
-import com.irfan.ecommerce.ui.pages.HomePage;
 import com.irfan.ecommerce.ui.pages.ProductPage;
 import com.irfan.ecommerce.ui.pages.CartPage;
 import com.irfan.ecommerce.util.GenericActions;
@@ -30,7 +29,6 @@ public class CartWorkflowTest extends BaseTest {
         String product = "Nokia lumia 1520";
         logger.info("SPLUNK_MONITOR: Starting Cart Persistence Check for: {}", product);
 
-        HomePage homePage = new HomePage(driver);
         homePage.open();
         homePage.clickProductByName(product);
 
