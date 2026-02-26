@@ -97,32 +97,25 @@ public class GenericActions {
      * RESULT: Reduced 'CFR' (Change Failure Rate) by 40% by automatically
      * switching to backup locators during the 'Wait' phase.
      */
-  public static By getBestLocator(String[] locatorArray) {
-    for (String locator : locatorArray) {
-        try {
-            By by;
-            if (locator.startsWith("//") || locator.startsWith("(")) {
-                by = By.xpath(locator);
-            } else if (locator.startsWith("css:") || locator.contains(".") || locator.contains("#")) {
-                // ✅ FIX: Strip "css:" prefix before CSS parsing
-                String cleanCss = locator.startsWith("css:") ? locator.substring(4) : locator;
-                by = By.cssSelector(cleanCss);
-            } else {
-                by = By.id(locator);
-            }
+    public static By getBestLocator(String[] locatorArray) {
+        for (String locator : locatorArray) {
+            try {
+                // ✅ THE FIX: Use our existing engine to split prefixes correctly
+                By by = parseBy(locator);
 
-            if (!DriverFactory.getDriver().findElements(by).isEmpty()) {
-                log.info("✅ Best locator found: {}", locator);
-                return by;
+                if (!DriverFactory.getDriver().findElements(by).isEmpty()) {
+                    log.info("✅ Best locator found: {}", locator);
+                    return by;
+                }
+            } catch (Exception e) {
+                log.warn("⚠️ Strategy failed for: {}", locator);
+                continue;
             }
-        } catch (Exception e) {
-            continue;
         }
+        // ✅ THE FIX: Fallback using our engine, not raw By.xpath
+        log.error("❌ All locators failed. Falling back to primary strategy.");
+        return parseBy(locatorArray[0]);
     }
-    // ✅ SAFE FALLBACK: First locator as XPath
-    return By.xpath(locatorArray[0]);
-}
-
 
     /**
      * THE WALMART RESUME REF: "Improved framework stability by 40% using
@@ -181,6 +174,11 @@ public class GenericActions {
             log.error("FATAL: Click failed. Evidence: {}. Trace: {}", path, e.getMessage());
             throw new RuntimeException("Interaction Error: Click", e);
         }
+    }
+
+    public static void waitForElementVisible(String[] locators) {
+        // This forces the code to go through your 'parseBy' switch logic
+        findElementSmartly(locators);
     }
 
     /**
@@ -472,5 +470,27 @@ public class GenericActions {
             }
         });
         log.info("OBSERVABILITY: Network Sniffer is active.");
+    }
+
+    /**
+     * 🛰️ THE ALERT CONTROLLER
+     * SITUATION: Demoblaze uses native JS alerts for errors and "Product Added"
+     * messages.
+     * ACTION: Added a robust wait + switch + accept bridge.
+     */
+    public static String getAlertTextAndAccept() {
+        try {
+            // Use a 5-second wait to ensure the alert has finished animating
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+            wait.until(ExpectedConditions.alertIsPresent());
+
+            Alert alert = getDriver().switchTo().alert();
+            String text = alert.getText();
+            alert.accept();
+            return text;
+        } catch (Exception e) {
+            log.warn("⚠️ NO_ALERT_FOUND: Moving forward.");
+            return "NO_ALERT_PRESENT";
+        }
     }
 }

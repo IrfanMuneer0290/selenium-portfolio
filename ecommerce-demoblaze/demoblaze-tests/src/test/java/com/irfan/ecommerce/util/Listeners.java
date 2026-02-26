@@ -3,6 +3,8 @@ package com.irfan.ecommerce.util;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+
+import org.testng.IRetryAnalyzer;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -50,26 +52,38 @@ public class Listeners implements ITestListener {
          extent.flush(); 
     }
 
-    /**
+   /**
      * THE WALMART RESUME REF: "Reduced Mean Time to Repair (MTTR) by 60%."
      * 
-     * WHY: Before I added this, we had to re-run the whole test to see why it
-     * failed.
-     * Now, with automatic screenshots and ThreadLocal logging, a developer can see
-     * the error in 2 minutes instead of 20.
+     * OPTIMIZATION: Check if the test is flagged for a Retry. 
+     * If yes, log it as a Warning to keep the dashboard clean. 
+     * If no (or final retry), log the Critical Failure with Screenshot.
+     * Dashboard Hygiene: In a large team, seeing 3 failures for the same test is confusing. This logic shows 1 Warning (the flake) and 1 Success (if the retry passed).
+       RCA Speed: If the test fails all attempts, the log clearly says "All retry attempts exhausted," letting you know this isn't just a network blink, but a real bug.
+       Memory Safety: You still have test.remove() in onFinish, ensuring that every thread's ExtentTest reference is cleared from the JVM.
      */
     public void onTestFailure(ITestResult result) {
-        test.get().fail("CRITICAL FAILURE: Check Screenshot for UI state at time of error.");
-        test.get().log(Status.FAIL, "Stack Trace: " + result.getThrowable());
+        ExtentTest currentTest = test.get();
+        
+        // 💡 SMART RETRY DETECTION
+        IRetryAnalyzer retryAnalyzer = result.getMethod().getRetryAnalyzer(result);
+        
+        if (retryAnalyzer != null && ((RetryAnalyzer) retryAnalyzer).retry(result)) {
+            currentTest.log(Status.WARNING, "⚠️ FLAKE DETECTED: Service returned error. Initiating auto-retry...");
+            currentTest.log(Status.INFO, "Attempt details: " + result.getThrowable().getMessage());
+        } else {
+            // FINAL FAILURE - All retries exhausted or no retry logic applied
+            currentTest.fail("❌ CRITICAL FAILURE: Component failed all validation attempts.");
+            currentTest.log(Status.FAIL, "Root Cause Stack Trace: " + result.getThrowable());
 
-        try {
-            String screenshotPath = GenericActions.takeScreenshot(result.getName());
-            test.get().addScreenCaptureFromPath(screenshotPath);
-            extent.flush();
-        } catch (Exception e) {
-            test.get().warning("System was unable to capture screenshot: " + e.getMessage());
-            extent.flush();
+            try {
+                String screenshotPath = GenericActions.takeScreenshot(result.getName());
+                currentTest.addScreenCaptureFromPath(screenshotPath);
+            } catch (Exception e) {
+                currentTest.warning("System was unable to capture forensic screenshot: " + e.getMessage());
+            }
         }
+        extent.flush();
     }
 
     public void onFinish(ITestContext context) {

@@ -2,7 +2,6 @@ package com.irfan.ecommerce.util;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 import java.io.File;
 
 /**
@@ -17,7 +16,7 @@ import java.io.File;
  * - THE RESULT: We have a clean history of every single run. If something
  * breaks at 3 AM in the CI, the proof is right there waiting for me.
  */
-public class ExtentManager {
+public class ExtentManager  {
 
     private static volatile ExtentReports extent;
 

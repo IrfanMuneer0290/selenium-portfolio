@@ -27,7 +27,8 @@ public class ObjectRepo {
     }
 
     // --- NAVIGATION & HEADER ---
-    public static final String[] NAV_HOME = {"id:nava", "xpath://a[contains(text(),'Home')]"};
+    public static final String[] NAV_HOME = {"//a[@id='nava']", "//a[contains(text(),'Home')]"};
+    public static final String[] NAV_USER = {"id:nameofuser", "xpath://a[@id='nameofuser']"}; 
     public static final String[] NAV_CONTACT = {"xpath://a[text()='Contact']", "css:a[data-target='#exampleModal']"};
     public static final String[] NAV_CART = {"id:cartur", "xpath://a[text()='Cart']"};
     

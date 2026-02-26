@@ -7,6 +7,9 @@ import org.testng.annotations.Listeners;
 
 import com.irfan.ecommerce.util.PropertyReader;
 import com.irfan.ecommerce.api.clients.AuthClient;
+import com.irfan.ecommerce.ui.pages.HomePage;
+import com.irfan.ecommerce.ui.pages.LoginPage;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -33,6 +36,8 @@ public class BaseTest {
     public WebDriver driver;
     protected static final Logger logger = LogManager.getLogger(BaseTest.class);
     private AuthClient authClient = new AuthClient();
+    protected LoginPage loginPage;
+    protected HomePage homePage; 
 
     @BeforeMethod
     public void setup() {
@@ -40,6 +45,8 @@ public class BaseTest {
 
         // THREADLOCAL MAGIC: Each test gets isolated driver
         driver = DriverFactory.initDriver("chrome");
+        loginPage = new LoginPage(driver);
+        homePage = new HomePage(driver); 
 
         if (driver == null) {
             throw new RuntimeException("ThreadLocal driver NULL!");
@@ -82,6 +89,7 @@ public class BaseTest {
     public WebDriver getDriver() {
         return DriverFactory.getDriver();
     }
+
 
     /**
      * 🛡️ UNIFIED LOGGING (The Reflection Bridge)

@@ -45,9 +45,4 @@ public class LoginPage extends BasePage {
         }
         return this;
     }
-
-    public void handleLoginAlert() {
-        log.info("⚠️ ACTION: Handling JS Auth Alert...");
-        GenericActions.handleAlert(true);
-    }
 }
