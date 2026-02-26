@@ -16,7 +16,7 @@ import java.io.File;
  * - THE RESULT: We have a clean history of every single run. If something
  * breaks at 3 AM in the CI, the proof is right there waiting for me.
  */
-public class ExtentManager  {
+public class ExtentManager {
 
     private static volatile ExtentReports extent;
 
@@ -57,9 +57,12 @@ public class ExtentManager  {
         ExtentReports extent = new ExtentReports();
         extent.attachReporter(latestReporter, timestampedReporter);
 
+        String runId = System.getProperty("run.id", "LOCAL_RUN");
+        String env = System.getProperty("execution_env", "local");
+
         // Theme for better visibility
-        extent.setSystemInfo("CI Run ID", "${{ github.run_id }}");
-        extent.setSystemInfo("Execution Env", System.getProperty("execution_env", "local"));
+        extent.setSystemInfo("CI Run ID", runId);
+        extent.setSystemInfo("Execution Env", System.getProperty("execution_env", env));
 
         return extent;
     }
