@@ -4,27 +4,14 @@ import com.irfan.ecommerce.api.clients.demoblaze.*;
 import com.irfan.ecommerce.ui.base.BaseTest;
 import com.irfan.ecommerce.ui.pages.CartPage;
 import com.irfan.ecommerce.util.PropertyReader;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
 /**
  * CartHybridTest: The "Short-Circuit" E2E Validation.
- * 
- * 🚀 THE WALMART-SCALE "WHY" (Efficiency Engineering):
- * SITUATION: A full UI-based E2E test (Login -> Browse -> Add -> Cart) took 60s. 
- *   Multiplied by 500 scenarios, our regression was too slow for CD (Continuous Deployment).
- * ACTION: Engineered a Hybrid approach. API handles the 'Setup' (Login & Add), 
- *   while Selenium handles only the 'Validation' (Cart UI).
- * 
- * 📊 DORA IMPACT: 
- * - LEAD TIME: Reduced test duration from 60s to 8s (85% improvement).
- * - CFR: Removed 4 brittle UI steps, significantly lowering the 'False Failure' rate.
- * 
- * @author Irfan Muneer (Quality Architect)
+ * 2026-02-27: Fixed property key alignment and added null-safety guards.
  */
 public class CartHybridTest extends BaseTest {
 
@@ -37,27 +24,32 @@ public class CartHybridTest extends BaseTest {
     public void verifyCartTotalWithApiInjection() {
         authClient = new AuthClient();
         cartClient = new CartClient();
-        // 1. SITUATION: We need to test the Cart, but we don't want to waste time on Login UI.
-        // ACTION: Pull credentials from Environment Properties (Walmart standard)
-        String user = PropertyReader.getProperty("test.username");
-        String pass = PropertyReader.getProperty("test.password");
+
+        // 1. ACTION: Align keys with config.properties (added demoblaze. prefix)
+        String user = PropertyReader.getProperty("demoblaze.username");
+        String pass = PropertyReader.getProperty("demoblaze.password");
+        String baseUrl = PropertyReader.getProperty("demoblaze.url");
+
+        // 2. DEFENSIVE GUARD: Catch nulls before they crash the API clients
+        Assert.assertNotNull(user, "🛑 CONFIG ERROR: 'demoblaze.username' is missing!");
+        Assert.assertNotNull(baseUrl, "🛑 CONFIG ERROR: 'demoblaze.url' is missing!");
         
-        // Grab Auth Token via API (<500ms)
+        // 3. API ACTION: Setup state in <1 second
+        logger.info("🔐 HYBRID: Fetching API token for: {}", user);
         String token = authClient.getAuthToken(user, pass);
 
-        // 2. SITUATION: We need a specific item in the cart.
-        // ACTION: Inject "Sony xperia z5" (ID: 6) directly into the database via API
+        // Inject "Sony xperia z5" (ID: 6) directly via API
         cartClient.addToCart("6", token);
-        logger.info("🛒 HYBRID: Product injected via API. Bypassing UI navigation.");
+        logger.info("🛒 HYBRID: Product injected via API. Bypassing 30s of Selenium clicks.");
 
-        // 3. SITUATION: The browser is currently a guest.
-        // ACTION: Inject the API token into Selenium Cookies and teleport to the Cart page.
+        // 4. UI ACTION: Synchronize browser session
+        // Assuming loginViaApi handles the cookie injection
         loginViaApi(user, pass); 
         
-        // Use PropertyReader for the Base URL
-        driver.get(PropertyReader.getProperty("url") + "/cart.html");
+        // Navigate directly to the Cart page
+        driver.get(baseUrl + "/cart.html");
 
-        // 4. ACTION: Final UI Validation using the Page Object Model
+        // 5. VALIDATION: Page Object Model
         cartPage = new CartPage(driver);
         String actualProduct = cartPage.getProductName(1);
         
