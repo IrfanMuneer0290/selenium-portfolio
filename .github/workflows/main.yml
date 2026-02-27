@@ -63,6 +63,8 @@ jobs:
         # SOLUTION: I standardized on 'clean test' with SystemClassLoader=true to resolve the 'Listener not found' 
         # error that usually plagues classpath isolation in CI runners.
         mvn clean test \
+          -P !ui \
+          -DsuiteXmlFile=src/test/resources/testng-all.xml \
           -Dheadless=true \
           -Dexecution_env=remote \
           -Dsplunk.token=$SPLUNK_TOKEN \
