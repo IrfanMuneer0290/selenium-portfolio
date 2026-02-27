@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Restful-Booker API Suite">
-
- <listeners>
+<suite name="Walmart-Scale API Suite">
+    <listeners>
         <listener class-name="com.irfan.ecommerce.util.AnnotationTransformer" />
         <listener class-name="com.irfan.ecommerce.util.Listeners" />
     </listeners>
+
+    <test name="Contract Verification (Shift-Left)">
+        <classes>
+            <class name="com.irfan.ecommerce.api.tests.demoblaze.LoginContractTest"/>
+        </classes>
+    </test>
+
     <test name="Restful-Booker E2E Flows">
         <classes>
             <class name="com.irfan.ecommerce.api.tests.restfulbooker.BookingTest"/>
-             <class name="com.irfan.ecommerce.api.tests.restfulbooker.BookingPatchTest"/>
-             <class name="com.irfan.ecommerce.api.tests.restfulbooker.BookingIdempotencyTest"/>
-              <class name="com.irfan.ecommerce.api.tests.restfulbooker.BookingConcurrencyTest"/>
-         </classes>
+            <class name="com.irfan.ecommerce.api.tests.restfulbooker.BookingPatchTest"/>
+            <class name="com.irfan.ecommerce.api.tests.restfulbooker.BookingIdempotencyTest"/>
+            <class name="com.irfan.ecommerce.api.tests.restfulbooker.BookingConcurrencyTest"/>
+        </classes>
     </test>
-
-    </suite>
+</suite>

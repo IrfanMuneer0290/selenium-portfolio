@@ -163,6 +163,13 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
+
+        <dependency>
+    <groupId>au.com.dius.pact.consumer</groupId>
+    <artifactId>junit5</artifactId> 
+    <version>4.6.5</version>
+    <scope>test</scope>
+</dependency>
     </dependencies>
 
    <build>
@@ -180,29 +187,36 @@
 
             <!-- Test Execution Engine -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.5</version>
-                <configuration>
-                    <!-- WALMART SCALE: Running tests in parallel to save time/money -->
-                    <suiteXmlFiles>
-                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
-                    </suiteXmlFiles>
-                    <properties>
-                        <property>
-                            <name>parallel</name>
-                            <value>methods</value>
-                        </property>
-                        <property>
-                            <name>threadcount</name>
-                            <value>5</value>
-                        </property>
-                    </properties>
-                    <systemPropertyVariables>
-                        <report.dir>${project.build.directory}/reports</report.dir>
-                    </systemPropertyVariables>
-                </configuration>
-            </plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.2.5</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.maven.surefire</groupId>
+            <artifactId>surefire-testng</artifactId>
+            <version>3.2.5</version>
+        </dependency>
+    </dependencies>
+    <configuration>
+        <suiteXmlFiles>
+            <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+        </suiteXmlFiles>
+        <properties>
+            <property>
+                <name>parallel</name>
+                <value>methods</value>
+            </property>
+            <property>
+                <name>threadcount</name>
+                <value>5</value>
+            </property>
+        </properties>
+        <systemPropertyVariables>
+            <report.dir>${project.build.directory}/reports</report.dir>
+            <pact.rootDir>${project.build.directory}/pacts</pact.rootDir>
+        </systemPropertyVariables>
+    </configuration>
+</plugin>
         </plugins>
     </build>
     <!--
