@@ -1,7 +1,7 @@
-package com.irfan.ecommerce.api.tests;
+package com.irfan.ecommerce.api.tests.demoblaze;
 
-import com.irfan.ecommerce.api.clients.AuthClient;
-import com.irfan.ecommerce.api.payloads.AddToCartRequest;
+import com.irfan.ecommerce.api.clients.demoblaze.AuthClient;
+import com.irfan.ecommerce.api.payloads.demoblaze.AddToCartRequest;
 import com.irfan.ecommerce.ui.base.BaseTest;
 import com.irfan.ecommerce.util.PropertyReader;
 import io.restassured.response.Response;

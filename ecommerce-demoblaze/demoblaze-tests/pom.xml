@@ -28,7 +28,27 @@
         <rest-assured.version>5.4.0</rest-assured.version>
         <log4j.version>2.20.0</log4j.version>
         <jackson.version>2.17.0</jackson.version>
+        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
     </properties>
+
+    <profiles>
+    <profile>
+        <id>api</id>
+        <properties>
+            <suiteXmlFile>src/test/resources/testng-api.xml</suiteXmlFile>
+        </properties>
+    </profile>
+
+    <profile>
+        <id>ui</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <properties>
+            <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+        </properties>
+    </profile>
+</profiles>
 
     <dependencies>
         <!-- Selenium WebDriver -->
@@ -48,6 +68,11 @@
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
         </dependency>
+        <dependency>
+    <groupId>com.github.javafaker</groupId>
+    <artifactId>javafaker</artifactId>
+    <version>1.0.2</version>
+</dependency>
 
         <!-- Apache POI -->
         <!-- PROBLEM: Manual data entry for 1000+ test scenarios was slow and error-prone. -->
@@ -160,7 +185,7 @@
                 <configuration>
                     <!-- WALMART SCALE: Running tests in parallel to save time/money -->
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
                     <properties>
                         <property>

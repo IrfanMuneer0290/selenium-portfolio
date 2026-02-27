@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeMethod;
 
 import com.irfan.ecommerce.util.GenericActions;
 import com.irfan.ecommerce.util.PropertyReader;
-import com.irfan.ecommerce.api.clients.AuthClient;
+import com.irfan.ecommerce.api.clients.demoblaze.AuthClient;
 import com.irfan.ecommerce.ui.pages.HomePage;
 import com.irfan.ecommerce.ui.pages.LoginPage;
 import org.apache.logging.log4j.LogManager;

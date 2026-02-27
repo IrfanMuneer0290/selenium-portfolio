@@ -1,7 +1,7 @@
-package com.irfan.ecommerce.api.tests;
+package com.irfan.ecommerce.api.tests.demoblaze;
 
-import com.irfan.ecommerce.api.clients.AuthClient;
-import com.irfan.ecommerce.api.clients.CartClient;
+import com.irfan.ecommerce.api.clients.demoblaze.AuthClient;
+import com.irfan.ecommerce.api.clients.demoblaze.CartClient;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

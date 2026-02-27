@@ -1,7 +1,6 @@
 package com.irfan.ecommerce.ui.tests;
 
-import com.irfan.ecommerce.api.clients.AuthClient;
-import com.irfan.ecommerce.api.clients.CartClient;
+import com.irfan.ecommerce.api.clients.demoblaze.*;
 import com.irfan.ecommerce.ui.base.BaseTest;
 import com.irfan.ecommerce.ui.pages.CartPage;
 import com.irfan.ecommerce.util.PropertyReader;

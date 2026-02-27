@@ -3272,3 +3272,274 @@ Session ID: 4eef9dd168a6595a3e4456143955df7c
 2026-02-27 04:00:46 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
 2026-02-27 04:00:46 [TestNG-test-Surefire test-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
 2026-02-27 04:00:46 [Thread-1] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...
+2026-02-27 07:05:58 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of demoblaze...
+2026-02-27 07:06:00 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ DEMOBLAZE INFRASTRUCTURE READY: https://api.demoblaze.com
+2026-02-27 07:06:00 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of demoblaze...
+2026-02-27 07:06:00 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ DEMOBLAZE INFRASTRUCTURE READY: https://api.demoblaze.com
+2026-02-27 07:06:00 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of demoblaze...
+2026-02-27 07:06:00 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ DEMOBLAZE INFRASTRUCTURE READY: https://api.demoblaze.com
+2026-02-27 07:06:00 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of demoblaze...
+2026-02-27 07:06:01 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ DEMOBLAZE INFRASTRUCTURE READY: https://api.demoblaze.com
+2026-02-27 07:06:01 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [43] BaseTest.setup()
+2026-02-27 07:06:01 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [47] BaseTest.setup()
+2026-02-27 07:06:01 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [44] BaseTest.setup()
+2026-02-27 07:06:01 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [46] BaseTest.setup()
+2026-02-27 07:06:01 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [43] Environment: local | Browser: chrome
+2026-02-27 07:06:01 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [46] Environment: local | Browser: chrome
+2026-02-27 07:06:01 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [44] Environment: local | Browser: chrome
+2026-02-27 07:06:01 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [47] Environment: local | Browser: chrome
+2026-02-27 07:06:01 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [45] BaseTest.setup()
+2026-02-27 07:06:01 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [45] Environment: local | Browser: chrome
+2026-02-27 07:06:04 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 07:06:04 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 07:06:04 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 07:06:04 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 07:06:04 [TestNG-test-E-Commerce UI Core Funnel-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 07:06:04 [TestNG-test-E-Commerce UI Core Funnel-5] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 07:06:04 [TestNG-test-E-Commerce UI Core Funnel-4] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 07:06:04 [TestNG-test-E-Commerce UI Core Funnel-3] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 07:06:04 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 07:06:04 [TestNG-test-E-Commerce UI Core Funnel-2] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 07:06:05 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [45] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 07:06:05 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 LOGIN ATTEMPT: User [irfan60]
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [43] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [44] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [47] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [46] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - SPLUNK_MONITOR: Starting Cart Persistence Check for: Nokia lumia 1520
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - SPLUNK_MONITOR: Starting PDP Integrity Check for 'Samsung galaxy s6'.
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - ACTION: Clicking on 'Samsung galaxy s6' link.
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 07:06:06 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [44] teardown
+2026-02-27 07:06:07 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [44] driver quit + ThreadLocal cleared
+2026-02-27 07:06:07 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan60] into field.
+2026-02-27 07:06:07 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [Nature@123] into field.
+2026-02-27 07:06:07 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:06:07 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 07:06:07 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 07:06:07 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - SPLUNK_MONITOR: Home Page getTitleText initiated.
+2026-02-27 07:06:07 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 07:06:07 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [PRODUCT STORE]
+2026-02-27 07:06:07 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: xpath://a[text()='%s']
+2026-02-27 07:06:07 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Phones]
+2026-02-27 07:06:07 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [43] teardown
+2026-02-27 07:06:07 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [43] driver quit + ThreadLocal cleared
+2026-02-27 07:06:08 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:06:08 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:06:08 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - ACTION: Adding product to cart.
+2026-02-27 07:06:08 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [$360 *includes tax]
+2026-02-27 07:06:08 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - VALIDATION: Actual Price found in UI: $360 *includes tax
+2026-02-27 07:06:08 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: xpath://h2[@class='name']
+2026-02-27 07:06:08 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Samsung galaxy s6]
+2026-02-27 07:06:08 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - SPLUNK_MONITOR: PDP Integrity Check - PASSED.
+2026-02-27 07:06:08 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:06:08 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [46] teardown
+2026-02-27 07:06:08 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [46] driver quit + ThreadLocal cleared
+2026-02-27 07:06:09 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: Product added
+2026-02-27 07:06:09 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - ACTION: Navigating to Cart Page.
+2026-02-27 07:06:10 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:06:10 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.pages.CartPage - CART: Verifying if [Nokia lumia 1520] exists in the checkout table.
+2026-02-27 07:06:11 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Nokia lumia 1520]
+2026-02-27 07:06:11 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - SPLUNK_MONITOR: Cart Persistence Check - PASSED.
+2026-02-27 07:06:11 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [47] teardown
+2026-02-27 07:06:11 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [47] driver quit + ThreadLocal cleared
+2026-02-27 07:06:12 [TestNG-test-E-Commerce UI Core Funnel-3] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NO_ALERT: Expected alert did not appear within timeout.
+2026-02-27 07:06:12 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: [irfan60]
+2026-02-27 07:06:12 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 07:06:12 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Welcome irfan60]
+2026-02-27 07:06:12 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ SESSION_CONFIRMED: User [irfan60] is active.
+2026-02-27 07:06:12 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [45] teardown
+2026-02-27 07:06:12 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [45] driver quit + ThreadLocal cleared
+2026-02-27 07:06:12 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [45] BaseTest.setup()
+2026-02-27 07:06:12 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [45] Environment: local | Browser: chrome
+2026-02-27 07:06:13 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 07:06:13 [TestNG-test-E-Commerce UI Core Funnel-3] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 07:06:15 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [45] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 07:06:15 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 LOGIN ATTEMPT: User [irfan_test]
+2026-02-27 07:06:15 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 07:06:15 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:06:15 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 07:06:15 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan_test] into field.
+2026-02-27 07:06:15 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [wrong_password] into field.
+2026-02-27 07:06:15 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:06:16 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: User does not exist.
+2026-02-27 07:06:16 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: [irfan_test]
+2026-02-27 07:06:16 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 07:06:27 [TestNG-test-E-Commerce UI Core Funnel-3] ERROR com.irfan.ecommerce.ui.pages.HomePage - ❌ SESSION_ERROR: Login verification failed or timed out.
+2026-02-27 07:06:27 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [45] teardown
+2026-02-27 07:06:27 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [45] driver quit + ThreadLocal cleared
+2026-02-27 07:06:27 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [45] BaseTest.setup()
+2026-02-27 07:06:27 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [45] Environment: local | Browser: chrome
+2026-02-27 07:06:28 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 07:06:28 [TestNG-test-E-Commerce UI Core Funnel-3] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 07:06:29 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [45] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 07:06:29 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 LOGIN ATTEMPT: User []
+2026-02-27 07:06:29 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 07:06:29 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:06:29 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 07:06:30 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 07:06:30 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 07:06:30 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:06:30 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: Please fill out Username and Password.
+2026-02-27 07:06:30 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: []
+2026-02-27 07:06:30 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 07:06:41 [TestNG-test-E-Commerce UI Core Funnel-3] ERROR com.irfan.ecommerce.ui.pages.HomePage - ❌ SESSION_ERROR: Login verification failed or timed out.
+2026-02-27 07:06:41 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [45] teardown
+2026-02-27 07:06:41 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [45] driver quit + ThreadLocal cleared
+2026-02-27 07:06:41 [Thread-1] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...
+2026-02-27 07:09:30 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of demoblaze...
+2026-02-27 07:09:32 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ DEMOBLAZE INFRASTRUCTURE READY: https://api.demoblaze.com
+2026-02-27 07:09:32 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of demoblaze...
+2026-02-27 07:09:32 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ DEMOBLAZE INFRASTRUCTURE READY: https://api.demoblaze.com
+2026-02-27 07:09:32 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of demoblaze...
+2026-02-27 07:09:33 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ DEMOBLAZE INFRASTRUCTURE READY: https://api.demoblaze.com
+2026-02-27 07:09:33 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of demoblaze...
+2026-02-27 07:09:33 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ DEMOBLAZE INFRASTRUCTURE READY: https://api.demoblaze.com
+2026-02-27 07:09:33 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [46] BaseTest.setup()
+2026-02-27 07:09:33 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [42] BaseTest.setup()
+2026-02-27 07:09:33 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [43] BaseTest.setup()
+2026-02-27 07:09:33 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [45] BaseTest.setup()
+2026-02-27 07:09:33 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [45] Environment: local | Browser: chrome
+2026-02-27 07:09:33 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [42] Environment: local | Browser: chrome
+2026-02-27 07:09:33 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [46] Environment: local | Browser: chrome
+2026-02-27 07:09:33 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [43] Environment: local | Browser: chrome
+2026-02-27 07:09:33 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [44] BaseTest.setup()
+2026-02-27 07:09:33 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [44] Environment: local | Browser: chrome
+2026-02-27 07:09:36 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 07:09:36 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 07:09:36 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 07:09:36 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 07:09:36 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 07:09:36 [TestNG-test-E-Commerce UI Core Funnel-4] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 07:09:36 [TestNG-test-E-Commerce UI Core Funnel-2] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 07:09:36 [TestNG-test-E-Commerce UI Core Funnel-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 07:09:36 [TestNG-test-E-Commerce UI Core Funnel-5] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 07:09:36 [TestNG-test-E-Commerce UI Core Funnel-3] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [44] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [42] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [46] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [43] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 LOGIN ATTEMPT: User [irfan60]
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - SPLUNK_MONITOR: Starting Cart Persistence Check for: Nokia lumia 1520
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [45] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - SPLUNK_MONITOR: Starting PDP Integrity Check for 'Samsung galaxy s6'.
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - ACTION: Clicking on 'Samsung galaxy s6' link.
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [43] teardown
+2026-02-27 07:09:38 [TestNG-test-E-Commerce UI Core Funnel-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [43] driver quit + ThreadLocal cleared
+2026-02-27 07:09:39 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan60] into field.
+2026-02-27 07:09:39 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [Nature@123] into field.
+2026-02-27 07:09:39 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:09:39 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 07:09:39 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 07:09:39 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - SPLUNK_MONITOR: Home Page getTitleText initiated.
+2026-02-27 07:09:39 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 07:09:39 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [PRODUCT STORE]
+2026-02-27 07:09:39 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: xpath://a[text()='%s']
+2026-02-27 07:09:39 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Phones]
+2026-02-27 07:09:39 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [42] teardown
+2026-02-27 07:09:39 [TestNG-test-E-Commerce UI Core Funnel-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [42] driver quit + ThreadLocal cleared
+2026-02-27 07:09:39 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:09:39 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:09:39 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - ACTION: Adding product to cart.
+2026-02-27 07:09:40 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [$360 *includes tax]
+2026-02-27 07:09:40 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - VALIDATION: Actual Price found in UI: $360 *includes tax
+2026-02-27 07:09:40 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: xpath://h2[@class='name']
+2026-02-27 07:09:40 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Samsung galaxy s6]
+2026-02-27 07:09:40 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - SPLUNK_MONITOR: PDP Integrity Check - PASSED.
+2026-02-27 07:09:40 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [45] teardown
+2026-02-27 07:09:40 [TestNG-test-E-Commerce UI Core Funnel-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [45] driver quit + ThreadLocal cleared
+2026-02-27 07:09:41 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:09:41 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: Product added
+2026-02-27 07:09:41 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - ACTION: Navigating to Cart Page.
+2026-02-27 07:09:42 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:09:42 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.pages.CartPage - CART: Verifying if [Nokia lumia 1520] exists in the checkout table.
+2026-02-27 07:09:43 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Nokia lumia 1520]
+2026-02-27 07:09:43 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - SPLUNK_MONITOR: Cart Persistence Check - PASSED.
+2026-02-27 07:09:43 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [46] teardown
+2026-02-27 07:09:43 [TestNG-test-E-Commerce UI Core Funnel-5] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [46] driver quit + ThreadLocal cleared
+2026-02-27 07:09:44 [TestNG-test-E-Commerce UI Core Funnel-3] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NO_ALERT: Expected alert did not appear within timeout.
+2026-02-27 07:09:44 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: [irfan60]
+2026-02-27 07:09:44 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 07:09:44 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Welcome irfan60]
+2026-02-27 07:09:44 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ SESSION_CONFIRMED: User [irfan60] is active.
+2026-02-27 07:09:44 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [44] teardown
+2026-02-27 07:09:44 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [44] driver quit + ThreadLocal cleared
+2026-02-27 07:09:44 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [44] BaseTest.setup()
+2026-02-27 07:09:44 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [44] Environment: local | Browser: chrome
+2026-02-27 07:09:45 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 07:09:45 [TestNG-test-E-Commerce UI Core Funnel-3] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 07:09:47 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [44] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 07:09:47 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 LOGIN ATTEMPT: User [irfan_test]
+2026-02-27 07:09:47 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 07:09:47 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:09:47 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 07:09:48 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan_test] into field.
+2026-02-27 07:09:48 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [wrong_password] into field.
+2026-02-27 07:09:48 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:09:49 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: User does not exist.
+2026-02-27 07:09:49 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: [irfan_test]
+2026-02-27 07:09:49 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 07:09:59 [TestNG-test-E-Commerce UI Core Funnel-3] ERROR com.irfan.ecommerce.ui.pages.HomePage - ❌ SESSION_ERROR: Login verification failed or timed out.
+2026-02-27 07:09:59 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [44] teardown
+2026-02-27 07:09:59 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [44] driver quit + ThreadLocal cleared
+2026-02-27 07:09:59 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [44] BaseTest.setup()
+2026-02-27 07:09:59 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [44] Environment: local | Browser: chrome
+2026-02-27 07:10:00 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 07:10:00 [TestNG-test-E-Commerce UI Core Funnel-3] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 07:10:02 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [44] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 07:10:02 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 LOGIN ATTEMPT: User []
+2026-02-27 07:10:02 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 07:10:02 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:10:02 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 07:10:02 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 07:10:02 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 07:10:02 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 07:10:02 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: Please fill out Username and Password.
+2026-02-27 07:10:02 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: []
+2026-02-27 07:10:02 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 07:10:13 [TestNG-test-E-Commerce UI Core Funnel-3] ERROR com.irfan.ecommerce.ui.pages.HomePage - ❌ SESSION_ERROR: Login verification failed or timed out.
+2026-02-27 07:10:13 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [44] teardown
+2026-02-27 07:10:13 [TestNG-test-E-Commerce UI Core Funnel-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [44] driver quit + ThreadLocal cleared
+2026-02-27 07:10:13 [Thread-1] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...
+2026-02-27 07:12:20 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 07:12:23 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 07:12:23 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 07:12:24 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 07:12:24 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🎭 Dynamic Test Data Generated for: Marcelene Luettgen
+2026-02-27 07:12:24 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 07:12:24 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Marcelene",
+  "lastname" : "Luettgen",
+  "totalprice" : 234,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-03-02",
+    "checkout" : "2026-03-01"
+  },
+  "additionalneeds" : "Salmon Nigiri"
+}
+2026-02-27 07:12:26 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - ✅ Created Booking ID: 661
+2026-02-27 07:12:26 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 🔐 AUTH: Fetching token using AuthRequest POJO...
+2026-02-27 07:12:28 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🧹 Initiating cleanup for Booking ID: 661
+2026-02-27 07:12:28 [TestNG-test-Restful-Booker E2E Flows-1] WARN  com.irfan.ecommerce.api.clients.BaseApiClient - 🗑️ API_REQUEST [DELETE]: Removing ID: 661
+2026-02-27 07:12:29 [TestNG-test-Restful-Booker E2E Flows-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - ✅ Environment state restored successfully.

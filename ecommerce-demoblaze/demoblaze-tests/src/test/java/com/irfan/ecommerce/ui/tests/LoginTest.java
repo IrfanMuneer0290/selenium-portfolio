@@ -2,7 +2,6 @@ package com.irfan.ecommerce.ui.tests;
 
 import com.irfan.ecommerce.ui.base.BaseTest;
 import com.irfan.ecommerce.util.JsonDataReader;
-import com.irfan.ecommerce.util.GenericActions;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
