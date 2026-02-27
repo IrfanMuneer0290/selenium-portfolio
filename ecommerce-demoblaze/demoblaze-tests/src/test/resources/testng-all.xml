@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="🛒 Full 1% Elite Automation Suite" parallel="tests" thread-count="2">
+    <listeners>
+        <listener class-name="com.irfan.ecommerce.util.Listeners"/>
+    </listeners>
     
     <test name="🖥️ UI Functional Suite">
         <packages>
@@ -13,5 +16,4 @@
             <package name="com.irfan.ecommerce.api.tests.restfulbooker" />
         </packages>
     </test>
-    
 </suite>

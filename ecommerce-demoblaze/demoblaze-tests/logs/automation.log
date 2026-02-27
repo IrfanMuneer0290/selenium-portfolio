@@ -6662,3 +6662,393 @@ Session ID: 4eef9dd168a6595a3e4456143955df7c
 2026-02-27 21:26:55 [TestNG-test-🔌 API Integration Suite-3] WARN  com.irfan.ecommerce.api.clients.BaseApiClient - 🗑️ API_REQUEST [DELETE]: Removing ID: 3766
 2026-02-27 21:26:56 [TestNG-test-🔌 API Integration Suite-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🗑️ Cleanup: Deleted Booking ID: 3767
 2026-02-27 21:26:56 [Thread-1] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...
+2026-02-27 21:48:09 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of demoblaze...
+2026-02-27 21:48:10 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ DEMOBLAZE INFRASTRUCTURE READY: https://api.demoblaze.com
+2026-02-27 21:48:10 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of demoblaze...
+2026-02-27 21:48:11 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ DEMOBLAZE INFRASTRUCTURE READY: https://api.demoblaze.com
+2026-02-27 21:48:11 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of demoblaze...
+2026-02-27 21:48:11 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ DEMOBLAZE INFRASTRUCTURE READY: https://api.demoblaze.com
+2026-02-27 21:48:11 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of demoblaze...
+2026-02-27 21:48:12 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ DEMOBLAZE INFRASTRUCTURE READY: https://api.demoblaze.com
+2026-02-27 21:48:12 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 21:48:13 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 21:48:13 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 21:48:15 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 21:48:15 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 21:48:16 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 21:48:16 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [41] BaseTest.setup()
+2026-02-27 21:48:16 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [42] BaseTest.setup()
+2026-02-27 21:48:16 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [43] BaseTest.setup()
+2026-02-27 21:48:16 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [44] BaseTest.setup()
+2026-02-27 21:48:16 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [41] Environment: local | Browser: chrome
+2026-02-27 21:48:16 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [44] Environment: local | Browser: chrome
+2026-02-27 21:48:16 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [42] Environment: local | Browser: chrome
+2026-02-27 21:48:16 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [43] Environment: local | Browser: chrome
+2026-02-27 21:48:16 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 21:48:16 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 21:48:19 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 21:48:19 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 21:48:19 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 21:48:19 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 21:48:19 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 21:48:19 [TestNG-test-🖥️ UI Functional Suite-5] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 21:48:19 [TestNG-test-🖥️ UI Functional Suite-2] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 21:48:19 [TestNG-test-🖥️ UI Functional Suite-4] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 21:48:19 [TestNG-test-🖥️ UI Functional Suite-3] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 21:48:19 [TestNG-test-🖥️ UI Functional Suite-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [41] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - SPLUNK_MONITOR: Starting Cart Persistence Check for: Nokia lumia 1520
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 LOGIN ATTEMPT: User [irfan60]
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [42] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - SPLUNK_MONITOR: Starting PDP Integrity Check for 'Samsung galaxy s6'.
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [43] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [44] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - ACTION: Clicking on 'Samsung galaxy s6' link.
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.ui.pages.HomePage - SPLUNK_MONITOR: Home Page getTitleText initiated.
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [PRODUCT STORE]
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: xpath://a[text()='%s']
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Phones]
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [43] teardown
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 21:48:21 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [43] driver quit + ThreadLocal cleared
+2026-02-27 21:48:22 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan60] into field.
+2026-02-27 21:48:22 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [Nature@123] into field.
+2026-02-27 21:48:22 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:48:23 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 21:48:23 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 21:48:23 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:48:23 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [44] teardown
+2026-02-27 21:48:23 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:48:23 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - ACTION: Adding product to cart.
+2026-02-27 21:48:23 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [44] driver quit + ThreadLocal cleared
+2026-02-27 21:48:23 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:48:23 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:48:23 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [$360 *includes tax]
+2026-02-27 21:48:23 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - VALIDATION: Actual Price found in UI: $360 *includes tax
+2026-02-27 21:48:23 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: xpath://h2[@class='name']
+2026-02-27 21:48:23 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Samsung galaxy s6]
+2026-02-27 21:48:23 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - SPLUNK_MONITOR: PDP Integrity Check - PASSED.
+2026-02-27 21:48:23 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [42] teardown
+2026-02-27 21:48:23 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [42] driver quit + ThreadLocal cleared
+2026-02-27 21:48:24 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: Product added
+2026-02-27 21:48:24 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - ACTION: Navigating to Cart Page.
+2026-02-27 21:48:25 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:48:25 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.pages.CartPage - CART: Verifying if [Nokia lumia 1520] exists in the checkout table.
+2026-02-27 21:48:26 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Nokia lumia 1520]
+2026-02-27 21:48:26 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - SPLUNK_MONITOR: Cart Persistence Check - PASSED.
+2026-02-27 21:48:26 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [41] teardown
+2026-02-27 21:48:26 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [41] driver quit + ThreadLocal cleared
+2026-02-27 21:48:27 [TestNG-test-🖥️ UI Functional Suite-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NO_ALERT: Expected alert did not appear within timeout.
+2026-02-27 21:48:27 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: [irfan60]
+2026-02-27 21:48:27 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 21:48:27 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Welcome irfan60]
+2026-02-27 21:48:27 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ SESSION_CONFIRMED: User [irfan60] is active.
+2026-02-27 21:48:27 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 21:48:27 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 21:48:27 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 21:48:27 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 21:48:28 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 21:48:28 [TestNG-test-🖥️ UI Functional Suite-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 21:48:30 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 21:48:30 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 LOGIN ATTEMPT: User [irfan_test]
+2026-02-27 21:48:30 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 21:48:30 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:48:30 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 21:48:30 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan_test] into field.
+2026-02-27 21:48:30 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [wrong_password] into field.
+2026-02-27 21:48:31 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:48:32 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: User does not exist.
+2026-02-27 21:48:32 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: [irfan_test]
+2026-02-27 21:48:32 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 21:48:42 [TestNG-test-🖥️ UI Functional Suite-1] ERROR com.irfan.ecommerce.ui.pages.HomePage - ❌ SESSION_ERROR: Login verification failed or timed out.
+2026-02-27 21:48:42 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 21:48:42 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 21:48:42 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [40] BaseTest.setup()
+2026-02-27 21:48:42 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [40] Environment: local | Browser: chrome
+2026-02-27 21:48:43 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 21:48:43 [TestNG-test-🖥️ UI Functional Suite-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 21:48:44 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [40] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 21:48:44 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 LOGIN ATTEMPT: User []
+2026-02-27 21:48:44 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 21:48:44 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:48:44 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 21:48:45 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 21:48:45 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 21:48:45 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:48:45 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: Please fill out Username and Password.
+2026-02-27 21:48:45 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: []
+2026-02-27 21:48:45 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 21:48:56 [TestNG-test-🖥️ UI Functional Suite-1] ERROR com.irfan.ecommerce.ui.pages.HomePage - ❌ SESSION_ERROR: Login verification failed or timed out.
+2026-02-27 21:48:56 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [40] teardown
+2026-02-27 21:48:56 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [40] driver quit + ThreadLocal cleared
+2026-02-27 21:48:56 [TestNG-test-🔌 API Integration Suite-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🚀 Starting testUpdateBooking flow...
+2026-02-27 21:48:56 [TestNG-test-🔌 API Integration Suite-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 21:48:56 [TestNG-test-🔌 API Integration Suite-3] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 21:48:56 [TestNG-test-🔌 API Integration Suite-2] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingIdempotencyTest - 🚀 Idempotency Test: Sending Request 1 with ID: REQ-ab8f8003-d818-4983-8864-1a65cc747f20
+2026-02-27 21:48:56 [TestNG-test-🔌 API Integration Suite-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 21:48:56 [TestNG-test-🔌 API Integration Suite-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Clay",
+  "lastname" : "Moen",
+  "totalprice" : 296,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-03-08",
+    "checkout" : "2026-03-05"
+  },
+  "additionalneeds" : "Breakfast"
+}
+2026-02-27 21:48:56 [TestNG-test-🔌 API Integration Suite-3] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Kristeen",
+  "lastname" : "Williamson",
+  "totalprice" : 351,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-02-28",
+    "checkout" : "2026-03-15"
+  },
+  "additionalneeds" : "Breakfast"
+}
+2026-02-27 21:48:56 [TestNG-test-🔌 API Integration Suite-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Joesph",
+  "lastname" : "Bernier",
+  "totalprice" : 452,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-02-28",
+    "checkout" : "2026-03-01"
+  },
+  "additionalneeds" : "Breakfast"
+}
+2026-02-27 21:48:58 [TestNG-test-🔌 API Integration Suite-2] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingIdempotencyTest - 🔄 Idempotency Test: Retrying identical Request 2 with same ID: REQ-ab8f8003-d818-4983-8864-1a65cc747f20
+2026-02-27 21:48:58 [TestNG-test-🔌 API Integration Suite-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 21:48:58 [TestNG-test-🔌 API Integration Suite-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Clay",
+  "lastname" : "Moen",
+  "totalprice" : 296,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-03-08",
+    "checkout" : "2026-03-05"
+  },
+  "additionalneeds" : "Breakfast"
+}
+2026-02-27 21:48:58 [TestNG-test-🔌 API Integration Suite-3] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 21:48:58 [TestNG-test-🔌 API Integration Suite-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 📜 Schema Validation Passed for ID: 4186
+2026-02-27 21:48:59 [TestNG-test-🔌 API Integration Suite-3] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 21:48:59 [TestNG-test-🔌 API Integration Suite-3] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 🔐 AUTH: Fetching token using AuthRequest POJO...
+2026-02-27 21:48:59 [TestNG-test-🔌 API Integration Suite-2] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingIdempotencyTest - Result: ID1=4185, ID2=4202
+2026-02-27 21:48:59 [TestNG-test-🔌 API Integration Suite-2] WARN  com.irfan.ecommerce.api.tests.restfulbooker.BookingIdempotencyTest - ⚠️ NOTICE: API created a duplicate. Not strictly idempotent by X-Request-ID.
+2026-02-27 21:49:02 [TestNG-test-🔌 API Integration Suite-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - ✅ Update Successful for ID: 4186
+2026-02-27 21:49:02 [TestNG-test-🔌 API Integration Suite-1] WARN  com.irfan.ecommerce.api.clients.BaseApiClient - 🗑️ API_REQUEST [DELETE]: Removing ID: 4186
+2026-02-27 21:49:02 [TestNG-test-🔌 API Integration Suite-3] WARN  com.irfan.ecommerce.api.clients.BaseApiClient - 🗑️ API_REQUEST [DELETE]: Removing ID: 4184
+2026-02-27 21:49:04 [TestNG-test-🔌 API Integration Suite-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🗑️ Cleanup: Deleted Booking ID: 4186
+2026-02-27 21:49:04 [Thread-1] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...
+2026-02-27 21:58:34 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of demoblaze...
+2026-02-27 21:58:35 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ DEMOBLAZE INFRASTRUCTURE READY: https://api.demoblaze.com
+2026-02-27 21:58:35 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of demoblaze...
+2026-02-27 21:58:36 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ DEMOBLAZE INFRASTRUCTURE READY: https://api.demoblaze.com
+2026-02-27 21:58:36 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of demoblaze...
+2026-02-27 21:58:36 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ DEMOBLAZE INFRASTRUCTURE READY: https://api.demoblaze.com
+2026-02-27 21:58:36 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of demoblaze...
+2026-02-27 21:58:37 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ DEMOBLAZE INFRASTRUCTURE READY: https://api.demoblaze.com
+2026-02-27 21:58:37 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 21:58:38 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 21:58:38 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 21:58:40 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 21:58:40 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 21:58:42 [main] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 21:58:42 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [46] BaseTest.setup()
+2026-02-27 21:58:42 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [47] BaseTest.setup()
+2026-02-27 21:58:42 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [44] BaseTest.setup()
+2026-02-27 21:58:42 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [45] BaseTest.setup()
+2026-02-27 21:58:42 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [46] Environment: local | Browser: chrome
+2026-02-27 21:58:42 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [47] Environment: local | Browser: chrome
+2026-02-27 21:58:42 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [44] Environment: local | Browser: chrome
+2026-02-27 21:58:42 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [45] Environment: local | Browser: chrome
+2026-02-27 21:58:42 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [43] BaseTest.setup()
+2026-02-27 21:58:42 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [43] Environment: local | Browser: chrome
+2026-02-27 21:58:45 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 21:58:45 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 21:58:45 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 21:58:45 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 21:58:45 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 21:58:45 [TestNG-test-🖥️ UI Functional Suite-3] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 21:58:45 [TestNG-test-🖥️ UI Functional Suite-2] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 21:58:45 [TestNG-test-🖥️ UI Functional Suite-5] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 21:58:45 [TestNG-test-🖥️ UI Functional Suite-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 21:58:45 [TestNG-test-🖥️ UI Functional Suite-4] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [47] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [46] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [44] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [45] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - SPLUNK_MONITOR: Starting Cart Persistence Check for: Nokia lumia 1520
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - SPLUNK_MONITOR: Starting PDP Integrity Check for 'Samsung galaxy s6'.
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [43] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 LOGIN ATTEMPT: User [irfan60]
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - ACTION: Clicking on 'Samsung galaxy s6' link.
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [47] teardown
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 21:58:47 [TestNG-test-🖥️ UI Functional Suite-5] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [47] driver quit + ThreadLocal cleared
+2026-02-27 21:58:48 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan60] into field.
+2026-02-27 21:58:48 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [Nature@123] into field.
+2026-02-27 21:58:48 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:58:48 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 21:58:48 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ HomePage fully loaded and synchronized.
+2026-02-27 21:58:48 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.ui.pages.HomePage - SPLUNK_MONITOR: Home Page getTitleText initiated.
+2026-02-27 21:58:48 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nava
+2026-02-27 21:58:48 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [PRODUCT STORE]
+2026-02-27 21:58:48 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: xpath://a[text()='%s']
+2026-02-27 21:58:48 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Phones]
+2026-02-27 21:58:48 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [46] teardown
+2026-02-27 21:58:48 [TestNG-test-🖥️ UI Functional Suite-4] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [46] driver quit + ThreadLocal cleared
+2026-02-27 21:58:48 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:58:48 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:58:48 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - ACTION: Adding product to cart.
+2026-02-27 21:58:49 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [$360 *includes tax]
+2026-02-27 21:58:49 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - VALIDATION: Actual Price found in UI: $360 *includes tax
+2026-02-27 21:58:49 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: xpath://h2[@class='name']
+2026-02-27 21:58:49 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:58:49 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Samsung galaxy s6]
+2026-02-27 21:58:49 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.tests.ProductDetailTest - SPLUNK_MONITOR: PDP Integrity Check - PASSED.
+2026-02-27 21:58:49 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [45] teardown
+2026-02-27 21:58:49 [TestNG-test-🖥️ UI Functional Suite-3] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [45] driver quit + ThreadLocal cleared
+2026-02-27 21:58:50 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: Product added
+2026-02-27 21:58:50 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - ACTION: Navigating to Cart Page.
+2026-02-27 21:58:51 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:58:51 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.pages.CartPage - CART: Verifying if [Nokia lumia 1520] exists in the checkout table.
+2026-02-27 21:58:52 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Nokia lumia 1520]
+2026-02-27 21:58:52 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.tests.CartWorkflowTest - SPLUNK_MONITOR: Cart Persistence Check - PASSED.
+2026-02-27 21:58:52 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [44] teardown
+2026-02-27 21:58:52 [TestNG-test-🖥️ UI Functional Suite-2] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [44] driver quit + ThreadLocal cleared
+2026-02-27 21:58:53 [TestNG-test-🖥️ UI Functional Suite-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NO_ALERT: Expected alert did not appear within timeout.
+2026-02-27 21:58:53 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: [irfan60]
+2026-02-27 21:58:53 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 21:58:53 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - 📊 DATA_EXTRACTED: [Welcome irfan60]
+2026-02-27 21:58:53 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - ✅ SESSION_CONFIRMED: User [irfan60] is active.
+2026-02-27 21:58:53 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [43] teardown
+2026-02-27 21:58:53 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [43] driver quit + ThreadLocal cleared
+2026-02-27 21:58:53 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [43] BaseTest.setup()
+2026-02-27 21:58:53 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [43] Environment: local | Browser: chrome
+2026-02-27 21:58:54 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 21:58:54 [TestNG-test-🖥️ UI Functional Suite-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 21:58:56 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [43] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 21:58:56 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 LOGIN ATTEMPT: User [irfan_test]
+2026-02-27 21:58:56 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 21:58:56 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:58:56 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 21:58:57 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [irfan_test] into field.
+2026-02-27 21:58:57 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [wrong_password] into field.
+2026-02-27 21:58:57 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:58:58 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: User does not exist.
+2026-02-27 21:58:58 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: [irfan_test]
+2026-02-27 21:58:58 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 21:59:08 [TestNG-test-🖥️ UI Functional Suite-1] ERROR com.irfan.ecommerce.ui.pages.HomePage - ❌ SESSION_ERROR: Login verification failed or timed out.
+2026-02-27 21:59:08 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [43] teardown
+2026-02-27 21:59:08 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [43] driver quit + ThreadLocal cleared
+2026-02-27 21:59:08 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🚀 Thread [43] BaseTest.setup()
+2026-02-27 21:59:08 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🔧 Thread [43] Environment: local | Browser: chrome
+2026-02-27 21:59:09 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - 🕵️‍♂️ NETWORK: Attempting to hook CDP (v129 bridge)...
+2026-02-27 21:59:09 [TestNG-test-🖥️ UI Functional Suite-1] WARN  com.irfan.ecommerce.util.GenericActions - ⚠️ NETWORK_SNIFFER_OFF: DevTools version mismatch. Proceeding to UI tests only.
+2026-02-27 21:59:11 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - ✅ Thread [43] DEMOBLAZE LOADED with Active CDP Sniffer
+2026-02-27 21:59:11 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.pages.LoginPage - 🚀 LOGIN ATTEMPT: User []
+2026-02-27 21:59:11 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:login2
+2026-02-27 21:59:11 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:59:11 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:loginusername
+2026-02-27 21:59:11 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 21:59:11 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Typed [] into field.
+2026-02-27 21:59:11 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ACTION: Clicked element successfully.
+2026-02-27 21:59:11 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - 📢 ALERT_CAPTURED: Please fill out Username and Password.
+2026-02-27 21:59:11 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.pages.HomePage - 🔍 VERIFYING_SESSION: Checking for user: []
+2026-02-27 21:59:11 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.util.GenericActions - ✅ Best locator found: id:nameofuser
+2026-02-27 21:59:22 [TestNG-test-🖥️ UI Functional Suite-1] ERROR com.irfan.ecommerce.ui.pages.HomePage - ❌ SESSION_ERROR: Login verification failed or timed out.
+2026-02-27 21:59:22 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.BaseTest - 🧹 Thread [43] teardown
+2026-02-27 21:59:22 [TestNG-test-🖥️ UI Functional Suite-1] INFO  com.irfan.ecommerce.ui.base.DriverFactory - 🧹 Thread [43] driver quit + ThreadLocal cleared
+2026-02-27 21:59:22 [TestNG-test-🔌 API Integration Suite-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🚀 Starting testUpdateBooking flow...
+2026-02-27 21:59:22 [TestNG-test-🔌 API Integration Suite-3] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 21:59:22 [TestNG-test-🔌 API Integration Suite-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 21:59:22 [TestNG-test-🔌 API Integration Suite-2] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingIdempotencyTest - 🚀 Idempotency Test: Sending Request 1 with ID: REQ-22fb1347-843f-4503-9a8c-730e8ed3442f
+2026-02-27 21:59:22 [TestNG-test-🔌 API Integration Suite-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 21:59:22 [TestNG-test-🔌 API Integration Suite-1] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Madlyn",
+  "lastname" : "Stehr",
+  "totalprice" : 380,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-03-04",
+    "checkout" : "2026-03-14"
+  },
+  "additionalneeds" : "Breakfast"
+}
+2026-02-27 21:59:22 [TestNG-test-🔌 API Integration Suite-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Richard",
+  "lastname" : "Muller",
+  "totalprice" : 318,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-03-02",
+    "checkout" : "2026-03-16"
+  },
+  "additionalneeds" : "Breakfast"
+}
+2026-02-27 21:59:22 [TestNG-test-🔌 API Integration Suite-3] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Garrett",
+  "lastname" : "Gibson",
+  "totalprice" : 405,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-03-07",
+    "checkout" : "2026-03-16"
+  },
+  "additionalneeds" : "Breakfast"
+}
+2026-02-27 21:59:24 [TestNG-test-🔌 API Integration Suite-2] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingIdempotencyTest - 🔄 Idempotency Test: Retrying identical Request 2 with same ID: REQ-22fb1347-843f-4503-9a8c-730e8ed3442f
+2026-02-27 21:59:24 [TestNG-test-🔌 API Integration Suite-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 API_REQUEST [POST]: Creating new booking at /booking
+2026-02-27 21:59:24 [TestNG-test-🔌 API Integration Suite-3] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📡 CIRCUIT BREAKER: Checking health of booker...
+2026-02-27 21:59:24 [TestNG-test-🔌 API Integration Suite-2] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 📦 PAYLOAD [New Booking Request]: 
+{
+  "firstname" : "Richard",
+  "lastname" : "Muller",
+  "totalprice" : 318,
+  "depositpaid" : true,
+  "bookingdates" : {
+    "checkin" : "2026-03-02",
+    "checkout" : "2026-03-16"
+  },
+  "additionalneeds" : "Breakfast"
+}
+2026-02-27 21:59:24 [TestNG-test-🔌 API Integration Suite-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 📜 Schema Validation Passed for ID: 4671
+2026-02-27 21:59:26 [TestNG-test-🔌 API Integration Suite-3] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - ✅ BOOKER INFRASTRUCTURE READY: https://restful-booker.herokuapp.com
+2026-02-27 21:59:26 [TestNG-test-🔌 API Integration Suite-3] INFO  com.irfan.ecommerce.api.clients.BaseApiClient - 🔐 AUTH: Fetching token using AuthRequest POJO...
+2026-02-27 21:59:26 [TestNG-test-🔌 API Integration Suite-2] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingIdempotencyTest - Result: ID1=4670, ID2=4688
+2026-02-27 21:59:26 [TestNG-test-🔌 API Integration Suite-2] WARN  com.irfan.ecommerce.api.tests.restfulbooker.BookingIdempotencyTest - ⚠️ NOTICE: API created a duplicate. Not strictly idempotent by X-Request-ID.
+2026-02-27 21:59:29 [TestNG-test-🔌 API Integration Suite-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - ✅ Update Successful for ID: 4671
+2026-02-27 21:59:29 [TestNG-test-🔌 API Integration Suite-1] WARN  com.irfan.ecommerce.api.clients.BaseApiClient - 🗑️ API_REQUEST [DELETE]: Removing ID: 4671
+2026-02-27 21:59:29 [TestNG-test-🔌 API Integration Suite-3] WARN  com.irfan.ecommerce.api.clients.BaseApiClient - 🗑️ API_REQUEST [DELETE]: Removing ID: 4669
+2026-02-27 21:59:30 [TestNG-test-🔌 API Integration Suite-1] INFO  com.irfan.ecommerce.api.tests.restfulbooker.BookingTest - 🗑️ Cleanup: Deleted Booking ID: 4671
+2026-02-27 21:59:30 [Thread-1] WARN  com.irfan.ecommerce.ui.base.DriverFactory - 🚨 JVM Shutdown: Commencing 100% Resource Cleanup for 0 active drivers...
