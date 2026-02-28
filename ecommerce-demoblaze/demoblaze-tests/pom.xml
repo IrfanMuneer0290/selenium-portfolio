@@ -27,7 +27,7 @@
         <sonar.tests>src/test/java</sonar.tests>
         <sonar.pitest.mode>reuseReport</sonar.pitest.mode>
         <sonar.pitest.reportsDirectory>target/pit-reports</sonar.pitest.reportsDirectory>
-        <sonar.java.binaries>target/classes</sonar.java.binaries>
+        <sonar.java.binaries>target/test-classes</sonar.java.binaries>
     </properties>
 
     <profiles>
