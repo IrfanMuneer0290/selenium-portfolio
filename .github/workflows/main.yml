@@ -33,6 +33,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: api-results
+          # FIXED: Added the correct path relative to repository root
           path: ecommerce-demoblaze/demoblaze-tests/target/surefire-reports/
 
   # --- JOB 2: UI & DAST ---
@@ -66,6 +67,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ui-results
+          # FIXED: Added the correct path relative to repository root
           path: ecommerce-demoblaze/demoblaze-tests/target/surefire-reports/
 
   # --- JOB 3: SONARCLOUD GOVERNANCE ---
@@ -96,8 +98,10 @@ jobs:
             -DskipTests=true
 
       - name: 📊 Final Consolidated Quality Upload
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: enterprise-quality-bundle
-          path: target/all-results/
+          # FIXED: Pointed to the actual target folder generated in this job
+          path: ecommerce-demoblaze/demoblaze-tests/target/
           retention-days: 2
