@@ -95,6 +95,7 @@ jobs:
             -Dsonar.token=$SONAR_TOKEN \
             -Dsonar.projectKey=IrfanMuneer0290_Enterprise-Quality-Orchestrator \
             -Dsonar.organization=irfanmuneer0290 \
+            -Dsonar.java.binaries=target/test-classes \
             -Dsonar.host.url=https://sonarcloud.io \
             -DskipTests=true
 
