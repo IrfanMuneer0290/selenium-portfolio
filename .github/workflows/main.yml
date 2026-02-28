@@ -67,7 +67,7 @@ jobs:
         image: ghcr.io/zaproxy/zaproxy:stable
         ports:
           - 8080:8080
-        options: >
+        options: >-
           --name zap-proxy
           -u root
           --entrypoint zap.sh
