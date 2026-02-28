@@ -1,12 +1,13 @@
 # 🛒 Enterprise Quality Orchestrator: Multi-Layered Governance & Security Hard-Gate
+# // 2026-02-28: Migrated DAST to manual Docker orchestration; implemented health-check loops
+# // and synchronized SonarCloud branch baseline for unified governance.
 name: 🛡️ Enterprise Quality Governance Pipeline
 
 on:
   push:
     branches: [ "main" ]
-    # PROBLEM: README/Doc changes trigger expensive runners, wasting $2-$5 per push.
+    # PROBLEM: README/Doc changes trigger expensive runners.
     # SOLUTION: Implement Path Filtering to trigger only on core code or infra changes.
-    # IMPACT: Slashes cloud compute waste by 40% and speeds up PR feedback loops.
     paths:
       - 'ecommerce-demoblaze/demoblaze-tests/src/**'
       - 'ecommerce-demoblaze/demoblaze-tests/pom.xml'
@@ -30,14 +31,11 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          # PROBLEM: Maven downloads 1GB+ of JARs every run. SOLUTION: Cache the .m2 directory.
           cache: maven
 
       - name: 🧪 Run API & Mutation Tests
         working-directory: ecommerce-demoblaze/demoblaze-tests
-        # PROBLEM: High code coverage doesn't mean "good" tests.
-        # SOLUTION: Use Pitest to inject bugs (mutants). If tests pass, the mutant "survived" (test failed).
-        # IMPACT: Ensures assertion integrity and prevents "fake" green builds.
+        # NOTE: Pitest REQUIRES a 100% green suite to run. Ensure local tests pass.
         run: |
           mvn clean test pitest:mutationCoverage \
             -DsuiteXmlFile=src/test/resources/testng-api.xml  \
@@ -58,37 +56,29 @@ jobs:
   ui-and-security:
     name: 🖥️ UI & DAST Security Suite
     runs-on: ubuntu-latest
-    
-    # PROBLEM: Security testing is usually a manual "once-a-year" event.
-    # SOLUTION: Side-car architecture. Run ZAP as a service to intercept Selenium traffic.
-    # IMPACT: Automated "Continuous Hacking" of every UI interaction for OWASP Top 10.
-    services:
-      zap:
-        image: ghcr.io/zaproxy/zaproxy:stable
-        ports:
-          - 8080:8080
-        options: >-
-          --name zap-proxy
-          -u root
-          --entrypoint zap.sh
-          -daemon -host 0.0.0.0 -port 8080 -config api.disablekey=true
-        env:
-          ZAP_AUTH_HEADER_VALUE: "none"
-
     steps:
       - name: 📥 Checkout Code
         uses: actions/checkout@v4
 
+      - name: 🛡️ Start ZAP Proxy (Manual Orchestration)
+        # PROBLEM: GitHub 'services' schema causes Exit 125 for complex ZAP flags.
+        # SOLUTION: Manual 'docker run' bypasses schema limits and enables precise API config.
+        run: |
+          docker run -d --name zap-proxy -p 8080:8080 \
+            -e ZAP_AUTH_HEADER_VALUE="none" \
+            --user root \
+            ghcr.io/zaproxy/zaproxy:stable \
+            zap.sh -daemon -host 0.0.0.0 -port 8080 -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true
+          
+          echo "Waiting for ZAP Proxy to initialize..."
+          timeout 60s bash -c 'until curl -s http://localhost:8080; do sleep 5; done'
+
       - name: 🏗️ Start Docker Selenium Grid
-        # PROBLEM: Local browsers on runners are brittle. SOLUTION: Dockerized Grid with Healthchecks.
         run: |
           docker compose up -d --wait --wait-timeout 120
-          sleep 10 
 
       - name: 🧪 Run UI Tests with ZAP Proxy
         working-directory: ecommerce-demoblaze/demoblaze-tests
-        # PROBLEM: Standard UI tests ignore the "Network Layer" vulnerabilities.
-        # SOLUTION: Force the browser through the ZAP Proxy to detect PII leaks and XSS.
         run: |
           mvn clean test \
             -DsuiteXmlFile=src/test/resources/testng-ui.xml \
@@ -115,15 +105,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 📥 Download All Results
-        # PROBLEM: Runners are isolated silos; data is lost when a job finishes.
-        # SOLUTION: Artifact Bridging. Download data from previous jobs to consolidate.
         uses: actions/download-artifact@v4
         with:
           path: target/all-results
 
-      # PROBLEM: Teams struggle to track technical debt across API, UI, and Security.
-      # SOLUTION: Push everything to SonarQube for a single "Go/No-Go" dashboard.
-      # IMPACT: Standardizes quality across the entire engineering organization.
       - name: 🛡️ SonarQube Analysis
         working-directory: ecommerce-demoblaze/demoblaze-tests
         env:
@@ -133,7 +118,8 @@ jobs:
             -Dsonar.projectKey=IrfanMuneer0290_enterprise-quality-orchestrator \
             -Dsonar.organization=IrfanMuneer0290 \
             -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.pitest.mode=reuseReport
+            -Dsonar.pitest.mode=reuseReport \
+            -Dsonar.branch.name=main
 
       - name: 📊 Final Consolidated Quality Upload
         uses: actions/upload-artifact@v4
