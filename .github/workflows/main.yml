@@ -1,18 +1,13 @@
 # 🛒 Enterprise Quality Orchestrator: Multi-Layered Governance & Security Hard-Gate
-# // 2026-02-28: Migrated DAST to manual Docker orchestration; implemented health-check loops
-# // and synchronized SonarCloud branch baseline for unified governance.
 name: 🛡️ Enterprise Quality Governance Pipeline
 
 on:
   push:
     branches: [ "main" ]
-    # PROBLEM: README/Doc changes trigger expensive runners.
-    # SOLUTION: Implement Path Filtering to trigger only on core code or infra changes.
     paths:
       - 'ecommerce-demoblaze/demoblaze-tests/src/**'
       - 'ecommerce-demoblaze/demoblaze-tests/pom.xml'
-      - 'docker-compose.yml'
-      - '.github/workflows/main.yml' 
+      - '.github/workflows/**' 
   workflow_dispatch: 
 
 jobs:
@@ -24,7 +19,7 @@ jobs:
       - name: 📥 Checkout Code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # PROBLEM: Shallow clones break Sonar history. SOLUTION: Fetch full depth.
+          fetch-depth: 0
 
       - name: ☕ Set up JDK 17
         uses: actions/setup-java@v4
@@ -35,11 +30,13 @@ jobs:
 
       - name: 🧪 Run API & Mutation Tests
         working-directory: ecommerce-demoblaze/demoblaze-tests
-        # NOTE: Pitest REQUIRES a 100% green suite to run. Ensure local tests pass.
+        # Added -Dparallel=none to ensure 'Green Suite' stability for Pitest in CI
         run: |
           mvn clean test pitest:mutationCoverage \
-            -DsuiteXmlFile=src/test/resources/testng-api.xml  \
-            -Denv=qa
+            -DsuiteXmlFile=src/test/resources/testng-api.xml \
+            -Denv=qa \
+            -Dparallel=none \
+            -Dthreadcount=1
 
       - name: 📦 Archive API & Quality Artifacts
         if: always() 
@@ -47,10 +44,8 @@ jobs:
         with:
           name: api-quality-data
           path: |
-            ecommerce-demoblaze/demoblaze-tests/target/reports/
             ecommerce-demoblaze/demoblaze-tests/target/pit-reports/
-            ecommerce-demoblaze/demoblaze-tests/target/pacts/
-            ecommerce-demoblaze/demoblaze-tests/target/site/jacoco/
+            ecommerce-demoblaze/demoblaze-tests/target/surefire-reports/
 
   # --- JOB 2: UI FUNCTIONAL & DAST SECURITY ---
   ui-and-security:
@@ -61,8 +56,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 🛡️ Start ZAP Proxy (Manual Orchestration)
-        # PROBLEM: GitHub 'services' schema causes Exit 125 for complex ZAP flags.
-        # SOLUTION: Manual 'docker run' bypasses schema limits and enables precise API config.
         run: |
           docker run -d --name zap-proxy -p 8080:8080 \
             -e ZAP_AUTH_HEADER_VALUE="none" \
@@ -73,53 +66,59 @@ jobs:
           echo "Waiting for ZAP Proxy to initialize..."
           timeout 60s bash -c 'until curl -s http://localhost:8080; do sleep 5; done'
 
-      - name: 🏗️ Start Docker Selenium Grid
-        run: |
-          docker compose up -d --wait --wait-timeout 120
-
       - name: 🧪 Run UI Tests with ZAP Proxy
         working-directory: ecommerce-demoblaze/demoblaze-tests
         run: |
           mvn clean test \
             -DsuiteXmlFile=src/test/resources/testng-ui.xml \
             -Dheadless=true \
-            -Dexecution_env=remote \
             -Denv=qa \
-            -DproxyHost=localhost -DproxyPort=8080
+            -DproxyHost=localhost \
+            -DproxyPort=8080
 
       - name: 📦 Archive UI & Security Data
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: ui-security-data
-          path: ecommerce-demoblaze/demoblaze-tests/target/reports/
+          path: ecommerce-demoblaze/demoblaze-tests/target/surefire-reports/
 
-  # --- JOB 3: SONARQUBE GOVERNANCE ---
+  # --- JOB 3: SONARCLOUD GOVERNANCE ---
   governance:
-    name: 📊 SonarQube & Governance
+    name: 📊 SonarCloud & Governance
     needs: [api-and-quality, ui-and-security]
-    if: always() 
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: 📥 Download All Results
+      - name: ☕ Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: 📥 Download Pitest Results
         uses: actions/download-artifact@v4
         with:
-          path: target/all-results
+          name: api-quality-data
+          path: ecommerce-demoblaze/demoblaze-tests/target/
 
-      - name: 🛡️ SonarQube Analysis
+      - name: 🛡️ SonarCloud Analysis
         working-directory: ecommerce-demoblaze/demoblaze-tests
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # Organization corrected to lowercase 'irfanmuneer0290'
+        # Removed branch name to allow auto-detection for PRs/Main
         run: |
           mvn sonar:sonar \
-            -Dsonar.projectKey=IrfanMuneer0290_enterprise-quality-orchestrator \
-            -Dsonar.organization=IrfanMuneer0290 \
+            -Dsonar.projectKey=IrfanMuneer0290_Enterprise-Quality-Orchestrator \
+            -Dsonar.organization=irfanmuneer0290 \
             -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.pitest.mode=reuseReport \
-            -Dsonar.branch.name=main
+            -Dsonar.pitest.mode=reuseReport
 
       - name: 📊 Final Consolidated Quality Upload
         uses: actions/upload-artifact@v4
