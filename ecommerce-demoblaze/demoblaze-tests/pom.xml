@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org"
-         xmlns:xsi="http://www.w3.org"
-         xsi:schemaLocation="http://maven.apache.org http://maven.apache.org">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.irfan.ecommerce</groupId>
     <artifactId>demoblaze-tests</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <!-- 
-      WALMART RESUME REF: "Optimized CI/CD infrastructure reducing execution costs by 30%."
-      WHY: I chose these specific versions of Selenium and TestNG to support 
-      parallel execution in Docker. This stopped us from needing 50 separate 
-      VMs and saved a huge amount of cloud budget.
-    -->
     <properties>
-        <!-- PROBLEM: Mismatched Java versions in CI environments cause 'Unsupported Class Version' errors. -->
-        <!-- SOLUTION: Standardized on JDK 17 (LTS) for enterprise-grade stability and long-term support. -->
-        <!-- ARCHITECT NOTE: Removed Lombok to prevent JDK 17/21 bytecode conflicts during annotation processing. -->
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.release>17</maven.compiler.release>
@@ -29,61 +20,58 @@
         <log4j.version>2.20.0</log4j.version>
         <jackson.version>2.17.0</jackson.version>
         <suiteXmlFile>src/test/resources/testng-all.xml</suiteXmlFile>
+
+        <sonar.projectKey>IrfanMuneer0290_enterprise-quality-orchestrator</sonar.projectKey>
+        <sonar.organization>IrfanMuneer0290</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        
         <sonar.pitest.mode>reuseReport</sonar.pitest.mode>
-    <sonar.pitest.reportsDirectory>target/pit-reports</sonar.pitest.reportsDirectory>
-    <sonar.java.binaries>target/classes</sonar.java.binaries>
-    <sonar.projectKey>IrfanMuneer0290_enterprise-quality-orchestrator</sonar.projectKey>
-<sonar.organization>IrfanMuneer0290</sonar.organization>
-<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.pitest.reportsDirectory>target/pit-reports</sonar.pitest.reportsDirectory>
+        <sonar.java.binaries>target/classes</sonar.java.binaries>
     </properties>
 
     <profiles>
-    <profile>
-        <id>api</id>
-        <properties>
-            <suiteXmlFile>src/test/resources/testng-api.xml</suiteXmlFile>
-        </properties>
-    </profile>
-
-    <profile>
-        <id>ui</id>
-        <activation>
-            <activeByDefault>true</activeByDefault>
-        </activation>
-        <properties>
-            <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
-        </properties>
-    </profile>
-</profiles>
+        <profile>
+            <id>api</id>
+            <properties>
+                <suiteXmlFile>src/test/resources/testng-api.xml</suiteXmlFile>
+            </properties>
+        </profile>
+        <profile>
+            <id>ui</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+            </properties>
+        </profile>
+    </profiles>
 
     <dependencies>
-        <!-- Selenium WebDriver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
         <dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-devtools-v129</artifactId> 
-    <version>4.25.0</version>
-</dependency>
-        <!-- TestNG -->
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-devtools-v129</artifactId> 
+            <version>${selenium.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
         </dependency>
-        <dependency>
-    <groupId>com.github.javafaker</groupId>
-    <artifactId>javafaker</artifactId>
-    <version>1.0.2</version>
-</dependency>
 
-        <!-- Apache POI -->
-        <!-- PROBLEM: Manual data entry for 1000+ test scenarios was slow and error-prone. -->
-        <!-- SOLUTION: At Walmart, I implemented Data-Driven Testing using POI for Excel integration. -->
-        <!-- RESULT: Reduced test script maintenance by 60% by separating test data from code logic. -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
@@ -95,23 +83,12 @@
             <version>5.2.5</version>
         </dependency>
 
-        <!-- WebDriverManager -->
-        <!-- PROBLEM: Frequent 'Driver/Browser Version Mismatch' errors caused 30% of our daily CI failures. -->
-        <!-- SOLUTION: Implemented WebDriverManager to automate the binary management lifecycle. -->
-        <!-- RESULT: Zeroed-out manual driver updates and significantly improved framework reliability. -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
         </dependency>
-    
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.14</version>
-        </dependency>
 
-        <!-- Log4j & SLF4J -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
@@ -123,47 +100,12 @@
             <version>${log4j.version}</version>
         </dependency>
 
-        <!-- Splunk Logging -->
-        <!-- PROBLEM: Stakeholders had no real-time visibility into automation trends or failure patterns. -->
-        <!-- SOLUTION: At Walmart, I integrated Splunk to stream test metrics directly to live dashboards. -->
-        <!-- RESULT: Provided executive-level visibility and reduced 'Time-to-Identify' (MTTI) for production risks. -->
-       <!--
-         <dependency>
-            <groupId>com.splunk.logging</groupId>
-            <artifactId>splunk-library-javalogging</artifactId>
-            <version>1.11.8</version>
-        </dependency>
-        -->
-      
-        <!-- Extent Reports -->
-        <!-- PROBLEM: Raw console logs were unreadable for non-technical stakeholders and product owners. -->
-        <!-- SOLUTION: Implemented rich HTML Extent Reports with embedded failure screenshots. -->
-        <!-- RESULT: Improved collaboration with Developers and POs, speeding up the bug-triage process by 50%. -->
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
             <version>5.1.1</version>
         </dependency>
 
-        <!-- RestAssured for REST & SOAP -->
-        <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>rest-assured</artifactId>
-            <version>${rest-assured.version}</version>
-        </dependency>
-
-        <!-- JSON Schema Validation -->
-        <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>json-schema-validator</artifactId>
-            <version>${rest-assured.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- Jackson Databind for Data-Driven Testing -->
-        <!-- PROBLEM: Hardcoded JSON strings in tests made script maintenance difficult. -->
-        <!-- SOLUTION: Integrated Jackson to parse external JSON data files into TestNG DataProviders. -->
-        <!-- RESULT: Decoupled test logic from data, enabling 100% reusable test scripts. -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -171,16 +113,21 @@
         </dependency>
 
         <dependency>
-    <groupId>au.com.dius.pact.consumer</groupId>
-    <artifactId>junit5</artifactId> 
-    <version>4.6.5</version>
-    <scope>test</scope>
-</dependency>
+            <groupId>au.com.dius.pact.consumer</groupId>
+            <artifactId>junit5</artifactId> 
+            <version>4.6.5</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+        </dependency>
     </dependencies>
 
-   <build>
+    <build>
         <plugins>
-            <!-- Strict JDK 17 Compiler Enforce -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -191,96 +138,67 @@
                 </configuration>
             </plugin>
 
-            <!-- Test Execution Engine -->
             <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-surefire-plugin</artifactId>
-    <version>3.2.5</version>
-    <dependencies>
-        <dependency>
-            <groupId>org.apache.maven.surefire</groupId>
-            <artifactId>surefire-testng</artifactId>
-            <version>3.2.5</version>
-        </dependency>
-    </dependencies>
-    <configuration>
-        <suiteXmlFiles>
-            <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
-        </suiteXmlFiles>
-        <properties>
-            <property>
-                <name>parallel</name>
-                <value>methods</value>
-            </property>
-            <property>
-                <name>threadcount</name>
-                <value>5</value>
-            </property>
-        </properties>
-        <systemPropertyVariables>
-            <report.dir>${project.build.directory}/reports</report.dir>
-        </systemPropertyVariables>
-    </configuration>
-</plugin>
-<plugin>
-    <groupId>org.pitest</groupId>
-    <artifactId>pitest-maven</artifactId>
-    <version>1.15.3</version>
-    <dependencies>
-        <dependency>
-            <groupId>org.pitest</groupId>
-            <artifactId>pitest-testng-plugin</artifactId>
-            <version>0.1</version>
-        </dependency>
-    </dependencies>
-    <configuration>
-        <targetClasses>
-            <param>com.irfan.ecommerce.*</param>
-        </targetClasses>
-        <targetTests>
-            <param>com.irfan.ecommerce.*</param>
-        </targetTests>
-        <outputFormats>
-            <value>HTML</value>
-            <value>XML</value> </outputFormats>
-    </configuration>
-</plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <properties>
+                        <property>
+                            <name>parallel</name>
+                            <value>methods</value>
+                        </property>
+                        <property>
+                            <name>threadcount</name>
+                            <value>5</value>
+                        </property>
+                    </properties>
+                </configuration>
+            </plugin>
 
-<plugin>
-    <groupId>org.jacoco</groupId>
-    <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.8.11</version>
-    <executions>
-        <execution>
-            <goals>
-                <goal>prepare-agent</goal>
-            </goals>
-        </execution>
-        <execution>
-            <id>report</id>
-            <phase>test</phase>
-            <goals>
-                <goal>report</goal>
-            </goals>
-        </execution>
-    </executions>
-</plugin>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.16.1</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.pitest</groupId>
+                        <artifactId>pitest-testng-plugin</artifactId>
+                        <version>1.0.0</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <targetClasses><param>com.irfan.ecommerce.*</param></targetClasses>
+                    <targetTests><param>com.irfan.ecommerce.*</param></targetTests>
+                    <outputFormats><value>HTML</value><value>XML</value></outputFormats>
+                    <timestampedReports>false</timestampedReports>
+                </configuration>
+            </plugin>
 
-<plugin>
-    <groupId>org.sonarsource.scanner.maven</groupId>
-    <artifactId>sonar-maven-plugin</artifactId>
-    <version>3.10.0.2594</version>
-</plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.11</version>
+                <executions>
+                    <execution>
+                        <goals><goal>prepare-agent</goal></goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals><goal>report</goal></goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.10.0.2594</version>
+            </plugin>
         </plugins>
     </build>
-    <!--
-     <repositories>
-        <repository>
-            <id>splunk-artifactory</id>
-            <name>Splunk Releases</name>
-            <url>https://splunk.jfrog.io</url>
-        </repository>
-    </repositories>
-    -->
-   
 </project>

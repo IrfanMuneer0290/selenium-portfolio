@@ -63,7 +63,7 @@ jobs:
     # IMPACT: Automated "Continuous Hacking" of every UI interaction for OWASP Top 10.
     services:
       zap:
-        image: owasp/zap2docker-stable
+        image: ghcr.io/zaproxy/zaproxy:stable
         ports:
           - 8080:8080
         options: >-
