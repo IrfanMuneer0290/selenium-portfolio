@@ -96,7 +96,6 @@ jobs:
             -Dsonar.projectKey=IrfanMuneer0290_Enterprise-Quality-Orchestrator \
             -Dsonar.organization=irfanmuneer0290 \
             -Dsonar.java.binaries=target/test-classes \
-            -Dsonar.sources=src/test/java \
             -DskipTests=true
 
       - name: 📊 Final Consolidated Quality Upload

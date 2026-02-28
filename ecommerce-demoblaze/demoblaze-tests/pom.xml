@@ -24,9 +24,8 @@
         <sonar.projectKey>IrfanMuneer0290_Enterprise-Quality-Orchestrator</sonar.projectKey>
         <sonar.organization>irfanmuneer0290</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.tests>src/test/java</sonar.tests>
+        <sonar.tests></sonar.tests>
         <sonar.pitest.mode>reuseReport</sonar.pitest.mode>
-        <sonar.pitest.reportsDirectory>target/pit-reports</sonar.pitest.reportsDirectory>
         <sonar.java.binaries>target/test-classes</sonar.java.binaries>
     </properties>
 
