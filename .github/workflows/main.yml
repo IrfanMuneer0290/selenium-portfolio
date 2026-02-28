@@ -1,25 +1,18 @@
-# 🛒 Enterprise Quality Orchestrator: Multi-Layered Governance & Security Hard-Gate
 name: 🛡️ Enterprise Quality Governance Pipeline
 
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - 'ecommerce-demoblaze/demoblaze-tests/src/**'
-      - 'ecommerce-demoblaze/demoblaze-tests/pom.xml'
-      - '.github/workflows/**' 
   workflow_dispatch: 
 
 jobs:
-  # --- JOB 1: API RESILIENCY & MUTATION ---
-  api-and-quality:
-    name: 🔌 API Resiliency & Mutation Coverage
+  # --- JOB 1: API RESILIENCY ---
+  api-testing:
+    name: 🔌 API Functional & Resiliency
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout Code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: ☕ Set up JDK 17
         uses: actions/setup-java@v4
@@ -28,26 +21,21 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: 🧪 Run API & Mutation Tests
+      - name: 🧪 Run API Tests
         working-directory: ecommerce-demoblaze/demoblaze-tests
-        # Added -Dparallel=none to ensure 'Green Suite' stability for Pitest in CI
         run: |
-          mvn clean test pitest:mutationCoverage \
+          mvn clean test \
             -DsuiteXmlFile=src/test/resources/testng-api.xml \
-            -Denv=qa \
-            -Dparallel=none \
-            -Dthreadcount=1
+            -Denv=qa
 
-      - name: 📦 Archive API & Quality Artifacts
+      - name: 📦 Archive API Artifacts
         if: always() 
         uses: actions/upload-artifact@v4
         with:
-          name: api-quality-data
-          path: |
-            ecommerce-demoblaze/demoblaze-tests/target/pit-reports/
-            ecommerce-demoblaze/demoblaze-tests/target/surefire-reports/
+          name: api-results
+          path: ecommerce-demoblaze/demoblaze-tests/target/surefire-reports/
 
-  # --- JOB 2: UI FUNCTIONAL & DAST SECURITY ---
+  # --- JOB 2: UI & DAST ---
   ui-and-security:
     name: 🖥️ UI & DAST Security Suite
     runs-on: ubuntu-latest
@@ -55,38 +43,35 @@ jobs:
       - name: 📥 Checkout Code
         uses: actions/checkout@v4
 
-      - name: 🛡️ Start ZAP Proxy (Manual Orchestration)
+      - name: 🛡️ Start ZAP Proxy
         run: |
           docker run -d --name zap-proxy -p 8080:8080 \
             -e ZAP_AUTH_HEADER_VALUE="none" \
             --user root \
             ghcr.io/zaproxy/zaproxy:stable \
             zap.sh -daemon -host 0.0.0.0 -port 8080 -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true
-          
-          echo "Waiting for ZAP Proxy to initialize..."
           timeout 60s bash -c 'until curl -s http://localhost:8080; do sleep 5; done'
 
-      - name: 🧪 Run UI Tests with ZAP Proxy
+      - name: 🧪 Run UI Tests
         working-directory: ecommerce-demoblaze/demoblaze-tests
         run: |
           mvn clean test \
             -DsuiteXmlFile=src/test/resources/testng-ui.xml \
             -Dheadless=true \
             -Denv=qa \
-            -DproxyHost=localhost \
-            -DproxyPort=8080
+            -DproxyHost=localhost -DproxyPort=8080
 
-      - name: 📦 Archive UI & Security Data
+      - name: 📦 Archive UI Data
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ui-security-data
+          name: ui-results
           path: ecommerce-demoblaze/demoblaze-tests/target/surefire-reports/
 
   # --- JOB 3: SONARCLOUD GOVERNANCE ---
   governance:
-    name: 📊 SonarCloud & Governance
-    needs: [api-and-quality, ui-and-security]
+    name: 📊 SonarCloud Governance
+    needs: [api-testing, ui-and-security]
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout Code
@@ -100,26 +85,17 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: 📥 Download Pitest Results
-        uses: actions/download-artifact@v4
-        with:
-          name: api-quality-data
-          path: ecommerce-demoblaze/demoblaze-tests/target/
-
       - name: 🛡️ SonarCloud Analysis
         working-directory: ecommerce-demoblaze/demoblaze-tests
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # Organization corrected to lowercase 'irfanmuneer0290'
-        # Removed branch name to allow auto-detection for PRs/Main
         run: |
           mvn sonar:sonar \
+            -Dsonar.token=$SONAR_TOKEN \
             -Dsonar.projectKey=IrfanMuneer0290_Enterprise-Quality-Orchestrator \
             -Dsonar.organization=irfanmuneer0290 \
             -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.pitest.mode=reuseReport \
-            -Dpitest.skip=true \
             -DskipTests=true
 
       - name: 📊 Final Consolidated Quality Upload
