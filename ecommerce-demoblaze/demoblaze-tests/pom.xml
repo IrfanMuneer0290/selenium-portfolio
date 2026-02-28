@@ -21,7 +21,7 @@
         <jackson.version>2.17.0</jackson.version>
         <suiteXmlFile>src/test/resources/testng-all.xml</suiteXmlFile>
 
-        <sonar.projectKey>IrfanMuneer0290_enterprise-quality-orchestrator</sonar.projectKey>
+        <sonar.projectKey>IrfanMuneer0290_Enterprise-Quality-Orchestrator</sonar.projectKey>
         <sonar.organization>irfanmuneer0290</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.tests>src/test/java</sonar.tests>
