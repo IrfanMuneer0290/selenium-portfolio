@@ -2,6 +2,8 @@
 **2026 Edition: High-Concurrency Framework for Enterprise Governance**
 
 > 🚀 **Social Proof:** Cloned **691+ times** in 14 days — utilized by engineers worldwide as the gold standard for enterprise-grade **Selenium + Observability** implementations.
+>
+> [👉 Become a Sponsor via GitHub](https://github.com/sponsors/IrfanMuneer0290)
 
 This is a **production-grade QA governance engine** designed for high-stakes transactional environments. It establishes real "Hard Gates" in CI/CD pipelines, shifting the focus from simple execution to **Total System Observability and Cross-Service Governance**.
 
